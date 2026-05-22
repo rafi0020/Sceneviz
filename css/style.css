@@ -561,16 +561,48 @@ select.form-control {
   margin-bottom: 60px;
 }
 
-/* --- Hero Focal-Depth Carousel --- */
+/* --- Hero Focal-Depth Carousel (blended coverflow, no card frame) --- */
 .hero-carousel-wrapper {
   position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  background: var(--bg-primary);
+  overflow: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
   aspect-ratio: 4 / 3;
-  perspective: 1200px;
+  min-height: 280px;
+  perspective: 1600px;
+  padding: 8px 0 52px;
+  isolation: isolate;
+}
+
+/* Ambient glow — ties active slide into page background */
+.hero-carousel-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 10% 5% 18%;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 45%,
+    hsla(160, 84%, 45%, 0.12) 0%,
+    transparent 72%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Edge fades — prev/next dissolve into site background */
+.hero-carousel-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0 -8%;
+  background: linear-gradient(
+    90deg,
+    var(--bg-primary) 0%,
+    transparent 14%,
+    transparent 86%,
+    var(--bg-primary) 100%
+  );
+  pointer-events: none;
+  z-index: 4;
 }
 
 .hero-carousel-track {
@@ -578,67 +610,38 @@ select.form-control {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
+  overflow: visible;
+  z-index: 1;
 }
 
-/* Each slide stacks absolutely and transitions scale/blur/opacity */
 .hero-carousel-slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  transform: scale(0.78) translateX(110%);
-  filter: blur(4px) brightness(0.5);
+  overflow: visible;
+  border-radius: 0;
+  transform: scale(0.7) translateX(100%);
+  filter: blur(8px) brightness(0.55) saturate(0.8);
   opacity: 0;
   z-index: 0;
   transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    z-index 0s 0.4s;
+    transform 0.85s cubic-bezier(0.34, 1.1, 0.48, 1),
+    filter 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0.42s;
   pointer-events: none;
 }
 
-/* ACTIVE — sharp, full-size, in focus */
-.hero-carousel-slide.is-active {
-  transform: scale(1) translateX(0);
-  filter: blur(0) brightness(1);
-  opacity: 1;
-  z-index: 3;
-  pointer-events: auto;
+.hero-carousel-media {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    z-index 0s 0s;
-}
-
-/* PREVIOUS — slightly visible, left, scaled down, blurred */
-.hero-carousel-slide.is-prev {
-  transform: scale(0.78) translateX(-110%);
-  filter: blur(4px) brightness(0.5);
-  opacity: 0.4;
-  z-index: 1;
-  transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    z-index 0s 0s;
-}
-
-/* NEXT — slightly visible, right, scaled down, blurred */
-.hero-carousel-slide.is-next {
-  transform: scale(0.78) translateX(110%);
-  filter: blur(4px) brightness(0.5);
-  opacity: 0.4;
-  z-index: 1;
-  transition:
-    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-    z-index 0s 0s;
+    box-shadow 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.85s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-carousel-slide img {
@@ -646,28 +649,98 @@ select.form-control {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.85s cubic-bezier(0.34, 1.1, 0.48, 1);
+}
+
+/* ACTIVE — sharp, centered, in focus */
+.hero-carousel-slide.is-active {
+  transform: scale(1) translateX(0);
+  filter: none;
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+  transition:
+    transform 0.85s cubic-bezier(0.34, 1.1, 0.48, 1),
+    filter 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0s;
+}
+
+.hero-carousel-slide.is-active .hero-carousel-media {
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.45),
+    0 0 0 1px hsla(160, 84%, 45%, 0.12);
+}
+
+.hero-carousel-slide.is-active img {
+  transform: scale(1);
+}
+
+/* PREV / NEXT — peek beside center, fade into page */
+.hero-carousel-slide.is-prev {
+  transform: scale(0.76) translateX(-52%);
+  filter: blur(3px) brightness(0.72) saturate(0.88);
+  opacity: 0.72;
+  z-index: 2;
+  transition:
+    transform 0.85s cubic-bezier(0.34, 1.1, 0.48, 1),
+    filter 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0s;
+}
+
+.hero-carousel-slide.is-next {
+  transform: scale(0.76) translateX(52%);
+  filter: blur(3px) brightness(0.72) saturate(0.88);
+  opacity: 0.72;
+  z-index: 2;
+  transition:
+    transform 0.85s cubic-bezier(0.34, 1.1, 0.48, 1),
+    filter 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0s;
+}
+
+.hero-carousel-slide.is-prev .hero-carousel-media,
+.hero-carousel-slide.is-next .hero-carousel-media {
+  box-shadow: none;
+  border-radius: var(--radius-md);
+}
+
+.hero-carousel-slide.is-prev img {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 28%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 28%, #000 100%);
+}
+
+.hero-carousel-slide.is-next img {
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 28%, #000 100%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 28%, #000 100%);
 }
 
 .hero-carousel-caption {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px 24px;
-  background: linear-gradient(transparent 0%, rgba(0,0,0,0.92) 100%);
+  bottom: -44px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  padding: 0;
+  background: none;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 4px;
+  text-align: center;
+  white-space: nowrap;
   opacity: 0;
-  transform: translateY(8px);
+  pointer-events: none;
   transition:
-    opacity 0.5s 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.5s 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity 0.45s 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.45s 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 5;
 }
 
 .hero-carousel-slide.is-active .hero-carousel-caption {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .hero-carousel-tag {
@@ -689,12 +762,18 @@ select.form-control {
 
 .hero-carousel-indicators {
   position: absolute;
-  bottom: 16px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 6px;
-  z-index: 5;
+  z-index: 6;
+  padding: 8px 14px;
+  background: hsla(220, 20%, 8%, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-full);
+  border: 1px solid hsla(255, 255, 255, 0.06);
 }
 
 .hero-carousel-dot {
@@ -718,19 +797,20 @@ select.form-control {
 
 .hero-carousel-counter {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(8px);
+  top: 0;
+  right: 0;
+  background: hsla(220, 20%, 8%, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 6px 12px;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-full);
   font-family: var(--font-heading);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--text-secondary);
   letter-spacing: 1px;
-  z-index: 5;
-  border: 1px solid rgba(255,255,255,0.08);
+  z-index: 6;
+  border: 1px solid hsla(255, 255, 255, 0.06);
 }
 
 /* Semi-transparent prev/next controls */
@@ -1444,6 +1524,18 @@ select.form-control {
   .hero-ctas {
     justify-content: center;
   }
+  .hero-carousel-slide.is-prev,
+  .hero-carousel-slide.is-next {
+    opacity: 0.45;
+    transform: scale(0.8) translateX(-42%);
+  }
+  .hero-carousel-slide.is-next {
+    transform: scale(0.8) translateX(42%);
+  }
+  .hero-carousel-caption {
+    white-space: normal;
+    max-width: 90%;
+  }
   .capability-grid, .library-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1460,6 +1552,24 @@ select.form-control {
 @media (max-width: 768px) {
   html {
     font-size: 15px;
+  }
+  .hero-carousel-wrapper {
+    padding-bottom: 56px;
+  }
+  .hero-carousel-slide.is-prev,
+  .hero-carousel-slide.is-next {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  .hero-carousel-wrapper::after {
+    inset: 0 -4%;
+    background: linear-gradient(
+      90deg,
+      var(--bg-primary) 0%,
+      transparent 6%,
+      transparent 94%,
+      var(--bg-primary) 100%
+    );
   }
   .container {
     padding: 60px 0;

@@ -16,7 +16,9 @@ function escapeHtml(str) {
 function renderSlide(slide, index) {
   return `
     <div class="hero-carousel-slide" data-slide-index="${index}">
-      <img src="${escapeHtml(slide.image)}" alt="${escapeHtml(slide.alt)}" loading="${index < 2 ? 'eager' : 'lazy'}">
+      <div class="hero-carousel-media">
+        <img src="${escapeHtml(slide.image)}" alt="${escapeHtml(slide.alt)}" loading="${index < 2 ? 'eager' : 'lazy'}">
+      </div>
       <div class="hero-carousel-caption">
         <span class="hero-carousel-tag">${escapeHtml(slide.tag)}</span>
         <span class="hero-carousel-title">${escapeHtml(slide.title)}</span>

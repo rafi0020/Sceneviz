@@ -1113,3 +1113,70 @@ select.form-control {
   width: 100%;
 }
 
+/* --- 16. FAQ Accordion Styles --- */
+.faq-section {
+  background: var(--bg-primary);
+  padding: 100px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: var(--accent-green);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 24px 30px;
+  background: none;
+  border: none;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--accent-green);
+  transition: var(--transition-fast);
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-medium) ease-out;
+}
+
+.faq-answer-inner {
+  padding: 0 30px 24px 30px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+

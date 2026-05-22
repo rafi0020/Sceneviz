@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMobileNav();
   setupScrollEffects();
   setupWhatsAppTracking();
+  setupFaqAccordions();
 });
 
 /**
@@ -241,4 +242,36 @@ function setupWhatsAppTracking() {
 
   if (fab) fab.href = waUrl;
   if (sticky) sticky.href = waUrl;
+}
+
+/**
+ * 6. Setup FAQ Accordion Toggles
+ */
+function setupFaqAccordions() {
+  const questions = document.querySelectorAll('.faq-question');
+  
+  questions.forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      const answer = question.nextElementSibling;
+      
+      // Close other open items
+      document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+      
+      // Toggle current item
+      const isActive = item.classList.contains('active');
+      if (isActive) {
+        item.classList.remove('active');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
 }

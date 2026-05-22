@@ -67,11 +67,12 @@ body {
   color: var(--text-primary);
   font-family: var(--font-body);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  width: 100%;
 }
 
 p {
@@ -100,10 +101,40 @@ img, video {
 
 /* --- 3. Typography & Utilities --- */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 80px 0;
+  margin-inline: auto;
+  padding-block: 80px;
+  padding-inline: clamp(1.25rem, 5vw, 2rem);
+  box-sizing: border-box;
+}
+
+/* Vertical-only padding overrides (keeps safe side gutters on mobile) */
+.container--y-flush {
+  padding-block: 0;
+}
+
+.container--top-flush {
+  padding-top: 0;
+}
+
+.container--bottom-flush {
+  padding-bottom: 0;
+}
+
+.container--narrow {
+  max-width: 800px;
+}
+
+.stack-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stack-center .section-desc {
+  margin-inline: auto;
 }
 
 .section-spacer {
@@ -1570,17 +1601,67 @@ select.form-control {
 
 /* --- 14. Responsive Layout Breakpoints --- */
 @media (max-width: 1024px) {
+  .hero-section,
+  .page-hero-section,
+  .grid-two-cols,
+  .grid-two-cols-start,
+  .capability-section .container,
+  .sla-strip .container,
+  .section-spacer .container,
+  .faq-section .container {
+    text-align: center;
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 48px;
     text-align: center;
   }
-  .hero-desc {
-    margin-left: auto;
-    margin-right: auto;
+
+  .hero-grid > div,
+  .deployments-hero-grid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+  .hero-desc,
+  .section-desc {
+    margin-inline: auto;
+  }
+
   .hero-ctas {
     justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+  }
+
+  .badge {
+    margin-inline: auto;
+  }
+
+  .capability-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .capability-icon-box {
+    margin-inline: auto;
+  }
+
+  .sla-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .grid-two-cols .btn,
+  .grid-two-cols-start .btn,
+  .page-hero-section .btn {
+    margin-inline: auto;
+    max-width: 420px;
+    width: 100%;
   }
   .hero-carousel-slide.is-prev,
   .hero-carousel-slide.is-next {
@@ -1610,13 +1691,73 @@ select.form-control {
   html {
     font-size: 15px;
   }
+
+  .hero-section {
+    overflow-x: clip;
+  }
+
+  .hero-carousel-wrapper,
+  .hero-carousel-stage {
+    max-width: 100%;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .btn {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .nav-container .btn-secondary {
+    display: none;
+  }
+
+  .grid-metrics-row {
+    text-align: center;
+  }
+
+  .grid-two-cols-start,
+  .grid-two-cols {
+    text-align: center;
+  }
+
+  .grid-two-cols-start > div,
+  .grid-two-cols > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .grid-two-cols-start .form-group,
+  .grid-two-cols .form-group {
+    text-align: left;
+    width: 100%;
+  }
+
+  #assessment-form {
+    padding: 28px 20px !important;
+  }
+
   .hero-carousel-slide.is-prev,
   .hero-carousel-slide.is-next {
     opacity: 0;
     filter: blur(10px);
   }
+
   .container {
-    padding: 60px 0;
+    padding-block: 60px;
+    padding-inline: 1.25rem;
+  }
+
+  .container--y-flush,
+  .container--top-flush,
+  .container--bottom-flush {
+    padding-inline: 1.25rem;
   }
   .nav-container {
     width: 100%;

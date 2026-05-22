@@ -2,6 +2,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  base: '/Sceneviz/',
   server: {
     host: '0.0.0.0',
     port: 5173,

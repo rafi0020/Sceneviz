@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Production Floor Intelligence Specs | Scenviz Technologies</title>
+  <meta name="description" content="Map cycle times, sewing sequences, and line balance dynamically. Retrofits legacy industrial layouts via edge computer vision dashboards.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Header is dynamically injected by js/main.js -->
+
+  <!-- 1. Page Header -->
+  <section style="padding: 140px 0 60px 0; background: radial-gradient(circle at 50% 20%, hsla(160, 84%, 45%, 0.03) 0%, transparent 50%);">
+    <div class="container" style="padding: 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <span class="badge">Floor Analytics</span>
+      <h1 class="section-title">Production Floor Intelligence</h1>
+      <p class="section-desc">Streamline active line throughput. Our software automatically logs step-wise operator cycle times, balance anomalies, and bottleneck points, streaming analytics direct to supervisor dashboards.</p>
+    </div>
+  </section>
+
+  <!-- 2. Interactive Operations Dashboard Widget -->
+  <section class="container" style="padding-top: 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; margin-bottom: 80px;">
+      <div>
+        <span class="badge">Live Floor Visualizer</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Dynamic Line Balance Dashboards</h2>
+        <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; font-size: 1.05rem;">
+          Continuous monitoring captures unit cycle times directly, tracking efficiency levels line by line. Select inspection mode or compliance auditor mode to preview live floor dashboard calculations.
+        </p>
+        
+        <div style="display: flex; gap: 16px;">
+          <button id="dash-inspect" class="btn btn-primary">
+            QA Inspect Metrics
+            <span class="btn-subtext">Toggle defect precision stats</span>
+          </button>
+          <button id="dash-compliance" class="btn btn-secondary">
+            Compliance Metrics
+            <span class="btn-subtext">Toggle audit safety checks</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Dashboard Widget -->
+      <div class="dashboard-widget" style="margin-top: 0;">
+        <div class="dashboard-widget-header">
+          <span style="font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; color: var(--accent-green);">⚙ FLOOR INTEL ACTIVE</span>
+          <span style="font-size: 0.8rem; color: var(--text-muted); font-family: monospace;">Edge-AI Inference: Stream 04</span>
+        </div>
+        
+        <div class="dashboard-stats-grid">
+          <div class="dashboard-stat-card">
+            <span class="label">Detection Precision</span>
+            <span class="value" id="dash-val-1">99.85%</span>
+          </div>
+          <div class="dashboard-stat-card">
+            <span class="label">Inference Latency</span>
+            <span class="value" id="dash-val-2">0.05s</span>
+          </div>
+          <div class="dashboard-stat-card">
+            <span class="label">Commercial Savings</span>
+            <span class="value" id="dash-val-3">85% Savings</span>
+          </div>
+        </div>
+        
+        <h4 style="font-size: 0.9rem; margin-bottom: 12px; color: var(--text-secondary);">Real-Time Cycle Times Mapping (Seconds)</h4>
+        <div class="dashboard-graph-area">
+          <div class="dashboard-bar" style="height: 60%;" data-value="7.2s"></div>
+          <div class="dashboard-bar" style="height: 75%;" data-value="9.0s"></div>
+          <div class="dashboard-bar" style="height: 45%;" data-value="5.4s"></div>
+          <div class="dashboard-bar" style="height: 80%;" data-value="9.6s"></div>
+          <div class="dashboard-bar" style="height: 90%;" data-value="10.8s"></div>
+          <div class="dashboard-bar" style="height: 65%;" data-value="7.8s"></div>
+          <div class="dashboard-bar" style="height: 50%;" data-value="6.0s"></div>
+          <div class="dashboard-bar" style="height: 85%;" data-value="10.2s"></div>
+          <div class="dashboard-bar" style="height: 70%;" data-value="8.4s"></div>
+          <div class="dashboard-bar" style="height: 55%;" data-value="6.6s"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Legacy Interfacing Blueprint (SCADA, MES, ERP) -->
+  <section style="background: var(--bg-secondary); padding: 100px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container" style="padding: 0; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;">
+      <div style="border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow:hidden; background: var(--bg-tertiary); padding: 40px;">
+        <h4 style="font-family: var(--font-heading); color: var(--accent-green); font-size: 1.25rem; margin-bottom: 24px; border-bottom:1px solid var(--border-color); padding-bottom:12px;">SYSTEM DATA INTEGRATION ARCHITECTURE</h4>
+        <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:24px;">Our software acts as a secure translator, linking physical cameras to legacy factory software stacks.</p>
+        
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:16px;">
+          <li style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:8px; font-size:0.9rem;">
+            <span style="font-weight:700;">ERP Data Pipeline:</span>
+            <span style="color:var(--text-muted);">JSON REST APIs / SAP & Oracle Interfacing</span>
+          </li>
+          <li style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:8px; font-size:0.9rem;">
+            <span style="font-weight:700;">MES Data Pipeline:</span>
+            <span style="color:var(--text-muted);">Real-time OPC UA / MQTT Pub-Sub</span>
+          </li>
+          <li style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:8px; font-size:0.9rem;">
+            <span style="font-weight:700;">SCADA Data Pipeline:</span>
+            <span style="color:var(--text-muted);">Modbus TCP / Direct PLC Digital Relays</span>
+          </li>
+          <li style="display:flex; justify-content:space-between; font-size:0.9rem;">
+            <span style="font-weight:700;">Data Custody Compliance:</span>
+            <span style="color:var(--accent-green); font-weight:600;">100% On-Site / Air-Gapped Optional</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <span class="badge">Integration Specs</span>
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Seamless Legacy Stack Interfacing</h2>
+        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: 24px;">
+          Computer vision should not live in a vacuum. Scenviz integrates directly into your existing operational technology (OT) infrastructure.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px;">
+          We dispatch real-time efficiency metrics and line cycle counts straight into your MES systems and dispatch localized alerts to line supervisor tablets, bridging manual sewing flows with automated digital control loops.
+        </p>
+        <a href="../commercials.html" class="btn btn-primary">
+          Explore Local Capex & AMC Models
+          <span class="btn-subtext">Zero L/C Delay • Direct Bank Settlement</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer is dynamically injected by js/main.js -->
+
+  <script src="../js/main.js" type="module"></script>
+  <script src="../js/dashboard.js" type="module"></script>
+</body>
+</html>

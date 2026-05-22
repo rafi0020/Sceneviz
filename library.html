@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Library & Resources | Scenviz Technologies</title>
+  <meta name="description" content="Industrial computer vision integration whitepapers, edge-AI specifications, API blueprints, and Accord/WRAP compliance auditing guides.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Header is dynamically injected by js/main.js -->
+
+  <!-- 1. Page Header -->
+  <section style="padding: 140px 0 60px 0; background: radial-gradient(circle at 50% 50%, hsla(160, 84%, 45%, 0.02) 0%, transparent 50%);">
+    <div class="container" style="padding: 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <span class="badge">Tech Library</span>
+      <h1 class="section-title">Technical Library & Case Studies</h1>
+      <p class="section-desc">Rigorous engineering documentation, API blueprints, and case studies designed for plant managers, QA directors, and systems integrators.</p>
+    </div>
+  </section>
+
+  <!-- 2. Whitepapers & Case Library Grid -->
+  <section class="container" style="padding-top: 0;">
+    <div class="library-grid">
+      <!-- Doc 1 -->
+      <div class="library-card">
+        <span class="library-card-type">SYSTEMS INTEGRATION MANUAL</span>
+        <h3>Industrial Computer Vision Integration Guide</h3>
+        <p>A comprehensive 40-page PDF outlining optical calibration parameters, light box specifications for blister inspection, Modbus TCP register addresses for physical rejects, and edge node installation specifications.</p>
+        <button class="btn btn-secondary" onclick="alert('B2B download link requested! We will package this PDF resource and share the secure link with you via WhatsApp.');" style="padding: 10px 20px; font-size: 0.85rem; width:fit-content;">
+          Download Integration PDF
+          <span class="btn-subtext">Version 3.2.0 • 8.4MB</span>
+        </button>
+      </div>
+      
+      <!-- Doc 2 -->
+      <div class="library-card">
+        <span class="library-card-type">COMPLIANCE WHITE PAPER</span>
+        <h3>Accord/WRAP Compliance Auditing Blueprint</h3>
+        <p>A detailed technical review mapping Scenviz optical bounding box models directly to amfori BSCI Chapter 7, RSC/Accord Fire Safe Standards, and WRAP Principle 5 criteria. Includes model audit reports.</p>
+        <button class="btn btn-secondary" onclick="alert('B2B download link requested! We will package this PDF resource and share the secure link with you via WhatsApp.');" style="padding: 10px 20px; font-size: 0.85rem; width:fit-content;">
+          Download Auditing PDF
+          <span class="btn-subtext">Version 1.4.1 • 4.2MB</span>
+        </button>
+      </div>
+      
+      <!-- Doc 3 -->
+      <div class="library-card">
+        <span class="library-card-type">API REFERENCE SPECS</span>
+        <h3>Scenviz Edge-AI Developer API Spec</h3>
+        <p>Complete documentation of our local edge REST APIs, MQTT pub-sub channel structures for active frame analysis, cycle time payloads, and SCADA OPC UA data block addresses for systems integrators.</p>
+        <button class="btn btn-secondary" onclick="alert('B2B download link requested! We will package this PDF resource and share the secure link with you via WhatsApp.');" style="padding: 10px 20px; font-size: 0.85rem; width:fit-content;">
+          Download API Reference
+          <span class="btn-subtext">Modbus / REST / MQTT Specs</span>
+        </button>
+      </div>
+      
+      <!-- Doc 4 -->
+      <div class="library-card">
+        <span class="library-card-type">RMG CASE STUDY</span>
+        <h3>Cycle-Time Balance Optimization Case Study</h3>
+        <p>White-labeled operational review of a Tier-1 RMG sewing floor in Gazipur. Outlines cycle time analytics, visual bottleneck identification, and line balancing, mapping out an 18% improvement in line throughput.</p>
+        <button class="btn btn-secondary" onclick="alert('B2B download link requested! We will package this PDF resource and share the secure link with you via WhatsApp.');" style="padding: 10px 20px; font-size: 0.85rem; width:fit-content;">
+          Download Case Study PDF
+          <span class="btn-subtext">RMG Savings Report • 3.8MB</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Industrial Protocols Specs block -->
+  <section style="background: var(--bg-secondary); padding: 100px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container" style="padding: 0;">
+      <div style="text-align: center; margin-bottom: 60px; display:flex; flex-direction:column; align-items:center;">
+        <span class="badge">Technical Specs</span>
+        <h2 class="section-title">Supported Industrial Protocols</h2>
+        <p class="section-desc">Scenviz is built to integrate with existing legacy factory operations technology (OT), supporting standard protocol configurations.</p>
+      </div>
+      
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 30px; text-align:center;">
+          <h4 style="color:var(--accent-green); margin-bottom:8px; font-family:var(--font-heading);">Modbus TCP</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary);">Direct conveyor PLC digital trigger relays.</p>
+        </div>
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 30px; text-align:center;">
+          <h4 style="color:var(--accent-green); margin-bottom:8px; font-family:var(--font-heading);">OPC UA</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary);">Structured mesh database interfacing for MES stacks.</p>
+        </div>
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 30px; text-align:center;">
+          <h4 style="color:var(--accent-green); margin-bottom:8px; font-family:var(--font-heading);">MQTT</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary);">Low-latency pub-sub telemetry streams for active supervisors.</p>
+        </div>
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 30px; text-align:center;">
+          <h4 style="color:var(--accent-green); margin-bottom:8px; font-family:var(--font-heading);">REST API</h4>
+          <p style="font-size:0.8rem; color:var(--text-secondary);">Standard JSON endpoints for ERP data log synchronization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer is dynamically injected by js/main.js -->
+
+  <script src="./js/main.js" type="module"></script>
+</body>
+</html>

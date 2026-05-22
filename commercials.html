@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capex & AMC Commercials & Camera Wizard | Scenviz Technologies</title>
+  <meta name="description" content="Localized capital expenditure and support structures for computer vision floor automation. Zero L/C delay, Capex + AMC models. Complete the camera stream compatibility wizard.">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- Header is dynamically injected by js/main.js -->
+
+  <!-- 1. Page Header -->
+  <section style="padding: 140px 0 60px 0; background: radial-gradient(circle at 80% 80%, hsla(160, 84%, 45%, 0.03) 0%, transparent 50%);">
+    <div class="container" style="padding: 0; text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <span class="badge">Commercial Model</span>
+      <h1 class="section-title">Localized Capex & AMC Commercials</h1>
+      <p class="section-desc">Avoid complex letter of credit (L/C) delays and foreign exchange volatility. We settle transactions directly via localized bank transfers using standard capital expenditure and support structures.</p>
+    </div>
+  </section>
+
+  <!-- 2. Interactive Camera Compatibility Wizard -->
+  <section class="container" style="padding-top:0;" id="camera-wizard">
+    <div style="text-align: center; margin-bottom: 50px; display:flex; flex-direction:column; align-items:center;">
+      <span class="badge">Camera Wizard</span>
+      <h2 style="font-size: 2.2rem; margin-bottom: 12px;">Camera Stream Compatibility Checker</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; font-size: 0.95rem;">Select your factory camera stream capabilities below to instantly verify compatibility with Scenviz edge-AI processing.</p>
+    </div>
+
+    <!-- Wizard Card Interface -->
+    <div class="wizard-card">
+      <div class="wizard-steps">
+        <div class="wizard-step active">1</div>
+        <div class="wizard-step">2</div>
+        <div class="wizard-step">3</div>
+      </div>
+      
+      <form id="wizard-form" onsubmit="event.preventDefault();">
+        <!-- Step 1: Resolution -->
+        <div class="wizard-pane active" id="pane-resolution">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px;">Step 1: Active Stream Resolution</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem;">What is the output resolution of your existing security or industrial floor cameras?</p>
+          
+          <div class="wizard-options">
+            <div class="wizard-option" data-type="resolution" data-value="1080p">
+              <h4>1080p Full HD</h4>
+              <p>1920 x 1080 stream resolution</p>
+            </div>
+            <div class="wizard-option" data-type="resolution" data-value="2k">
+              <h4>2K / 4MP</h4>
+              <p>2560 x 1440 high-density stream</p>
+            </div>
+            <div class="wizard-option" data-type="resolution" data-value="4k">
+              <h4>4K / 8MP+</h4>
+              <p>3840 x 2160 ultra high resolution</p>
+            </div>
+            <div class="wizard-option" data-type="resolution" data-value="sub1080p">
+              <h4>Sub-1080p (720p/VGA)</h4>
+              <p>Standard analog resolution</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2: Protocol -->
+        <div class="wizard-pane" id="pane-protocol">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px;">Step 2: Stream Protocol</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem;">How do your camera feeds connect to your local network switch?</p>
+          
+          <div class="wizard-options">
+            <div class="wizard-option" data-type="protocol" data-value="rtsp">
+              <h4>RTSP Stream</h4>
+              <p>Real-Time Streaming Protocol (IP camera standard)</p>
+            </div>
+            <div class="wizard-option" data-type="protocol" data-value="onvif">
+              <h4>ONVIF Profile S</h4>
+              <p>Standard IP network interfacing</p>
+            </div>
+            <div class="wizard-option" data-type="protocol" data-value="coaxial">
+              <h4>Analog Coaxial (BNC)</h4>
+              <p>Direct wiring to analog DVR</p>
+            </div>
+            <div class="wizard-option" data-type="protocol" data-value="http">
+              <h4>Custom HTTP Stream</h4>
+              <p>Browser stream / local MJPEG</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 3: Frame Rate -->
+        <div class="wizard-pane" id="pane-fps">
+          <h3 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 8px;">Step 3: Feed Frame Rate</h3>
+          <p style="color: var(--text-secondary); font-size: 0.85rem;">What is the target capture speed (FPS) of your camera streams?</p>
+          
+          <div class="wizard-options">
+            <div class="wizard-option" data-type="fps" data-value="30fps">
+              <h4>30 FPS (Full Motion)</h4>
+              <p>High speed conveyor inspection optimal</p>
+            </div>
+            <div class="wizard-option" data-type="fps" data-value="15fps">
+              <h4>15 FPS (Standard)</h4>
+              <p>Compliance and safety tracking optimal</p>
+            </div>
+            <div class="wizard-option" data-type="fps" data-value="sub15fps">
+              <h4>Sub-15 FPS (Low-Speed)</h4>
+              <p>Slow motion / static surveillance</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="wizard-nav">
+          <button class="btn btn-secondary" id="wizard-prev" type="button" disabled>
+            Back Step
+          </button>
+          <button class="btn btn-primary" id="wizard-next" type="button" disabled>
+            Continue Setup
+          </button>
+        </div>
+      </form>
+      
+      <!-- Diagnosis result container -->
+      <div id="wizard-result" style="margin-top:40px; display:none;">
+        <!-- Injected via js/compatibility.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Enterprise B2B Capex + AMC Model details -->
+  <section style="background: var(--bg-secondary); padding: 100px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container" style="padding: 0;">
+      <div style="text-align: center; margin-bottom: 60px; display:flex; flex-direction:column; align-items:center;">
+        <span class="badge">Commercial Framework</span>
+        <h2 class="section-title">The Enterprise Billing Structure</h2>
+        <p class="section-desc">We do not use complex recurring monthly SaaS subscriptions. We align perfectly with standard B2B industrial procurement cycles.</p>
+      </div>
+      
+      <div class="capability-grid">
+        <!-- Capex Card -->
+        <div class="capability-card" style="background: var(--bg-tertiary);">
+          <div style="font-size:2rem; margin-bottom:20px;">🏢</div>
+          <h3>1. Initial Capital Outlay (Capex)</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0;">
+            Covers physical edge server deployment, lens calibration, camera alignment, PLC integration modules, and deep learning model custom training for your floor light levels. Billed locally through direct bank transfer once contractually agreed accuracy metrics are satisfied.
+          </p>
+        </div>
+        
+        <!-- AMC Card -->
+        <div class="capability-card" style="background: var(--bg-tertiary);">
+          <div style="font-size:2rem; margin-bottom:20px;">🛡️</div>
+          <h3>2. Annual Maintenance (AMC)</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0;">
+            Includes 24/7 rapid zone engineering support, physical camera recalibrations, custom model tuning for new fabric overlays or packaging styles, and continuous API security patches. Billed annually starting in Year 2.
+          </p>
+        </div>
+        
+        <!-- Retrofitting Card -->
+        <div class="capability-card" style="background: var(--bg-tertiary);">
+          <div style="font-size:2rem; margin-bottom:20px;">📷</div>
+          <h3>3. Zero Camera CapEx</h3>
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0;">
+            Because our core computer vision models run directly on your existing security IP cameras (Hikvision, Dahua, Axis), your initial deployment requires zero reinvestment in optical infrastructure.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer is dynamically injected by js/main.js -->
+
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/compatibility.js" type="module"></script>
+</body>
+</html>

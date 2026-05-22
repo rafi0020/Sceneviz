@@ -105,6 +105,32 @@ img, video {
   padding: 80px 0;
 }
 
+.section-spacer {
+  padding: 60px 0;
+}
+
+.page-hero-section {
+  padding: 100px 0 40px 0;
+}
+
+@media (min-width: 768px) {
+  .section-spacer {
+    padding: 80px 0;
+  }
+  .page-hero-section {
+    padding: 120px 0 50px 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .section-spacer {
+    padding: 100px 0;
+  }
+  .page-hero-section {
+    padding: 140px 0 60px 0;
+  }
+}
+
 .text-gradient {
   background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-green) 100%);
   -webkit-background-clip: text;

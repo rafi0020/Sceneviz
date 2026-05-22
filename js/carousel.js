@@ -1,6 +1,5 @@
 /* ==========================================================================
    SCENVIZ TECHNOLOGIES - Hero Focal-Depth Carousel Controller
-   Scale-on-focus: active slide sharp/full-size; neighbors scaled + blurred.
    ========================================================================== */
 
 import { DEPLOYMENT_SLIDES } from './deployments-data.js';
@@ -17,19 +16,26 @@ function renderSlide(slide, index) {
   return `
     <div class="hero-carousel-slide" data-slide-index="${index}">
       <div class="hero-carousel-media">
-        <img src="${escapeHtml(slide.image)}" alt="${escapeHtml(slide.alt)}" loading="${index < 2 ? 'eager' : 'lazy'}">
-      </div>
-      <div class="hero-carousel-caption">
-        <span class="hero-carousel-tag">${escapeHtml(slide.tag)}</span>
-        <span class="hero-carousel-title">${escapeHtml(slide.title)}</span>
+        <img src="${escapeHtml(slide.image)}" alt="${escapeHtml(slide.alt)}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
       </div>
     </div>`;
+}
+
+function updateCaption(captionEl, index) {
+  if (!captionEl) return;
+  const slide = DEPLOYMENT_SLIDES[index];
+  if (!slide) return;
+
+  captionEl.innerHTML = `
+    <span class="hero-carousel-tag">${escapeHtml(slide.tag)}</span>
+    <span class="hero-carousel-title">${escapeHtml(slide.title)}</span>`;
 }
 
 function populateCarouselMarkup(wrapper) {
   const track = wrapper.querySelector('.hero-carousel-track');
   const dotsContainer = wrapper.querySelector('.hero-carousel-indicators');
   const totalEl = wrapper.querySelector('.hero-carousel-total');
+  const captionEl = wrapper.querySelector('.hero-carousel-caption');
 
   if (!track || !dotsContainer) return false;
 
@@ -43,6 +49,7 @@ function populateCarouselMarkup(wrapper) {
   ).join('');
 
   if (totalEl) totalEl.textContent = totalLabel;
+  updateCaption(captionEl, 0);
 
   return true;
 }
@@ -53,6 +60,7 @@ function initHeroCarousel(wrapper) {
   const track = wrapper.querySelector('.hero-carousel-track');
   const dotsContainer = wrapper.querySelector('.hero-carousel-indicators');
   const counterEl = wrapper.querySelector('.hero-carousel-current');
+  const captionEl = wrapper.querySelector('.hero-carousel-caption');
   const prevBtn = wrapper.querySelector('.hero-carousel-nav--prev');
   const nextBtn = wrapper.querySelector('.hero-carousel-nav--next');
 
@@ -88,6 +96,8 @@ function initHeroCarousel(wrapper) {
     if (counterEl) {
       counterEl.textContent = String(currentIndex + 1).padStart(2, '0');
     }
+
+    updateCaption(captionEl, currentIndex);
   }
 
   function nextSlide() {

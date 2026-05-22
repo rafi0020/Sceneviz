@@ -43,16 +43,21 @@
       
       <!-- Deployment carousel: populated from js/deployments-data.js -->
       <div class="hero-carousel-wrapper" data-hero-carousel tabindex="0" aria-roledescription="carousel" aria-label="Proven deployment showcases">
-        <button type="button" class="hero-carousel-nav hero-carousel-nav--prev" aria-label="Previous deployment">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <div class="hero-carousel-track" id="hero-carousel-track"></div>
-        <button type="button" class="hero-carousel-nav hero-carousel-nav--next" aria-label="Next deployment">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-        <div class="hero-carousel-indicators" id="hero-carousel-indicators"></div>
-        <div class="hero-carousel-counter">
-          <span class="hero-carousel-current" id="hero-carousel-current">01</span> / <span class="hero-carousel-total" id="hero-carousel-total">10</span>
+        <div class="hero-carousel-stage">
+          <button type="button" class="hero-carousel-nav hero-carousel-nav--prev" aria-label="Previous deployment">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="hero-carousel-track" id="hero-carousel-track"></div>
+          <button type="button" class="hero-carousel-nav hero-carousel-nav--next" aria-label="Next deployment">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <div class="hero-carousel-counter">
+            <span class="hero-carousel-current" id="hero-carousel-current">01</span> / <span class="hero-carousel-total" id="hero-carousel-total">10</span>
+          </div>
+        </div>
+        <div class="hero-carousel-meta">
+          <div class="hero-carousel-caption" id="hero-carousel-caption" aria-live="polite"></div>
+          <div class="hero-carousel-indicators" id="hero-carousel-indicators"></div>
         </div>
       </div>
     </div>

@@ -30,9 +30,11 @@ function injectSharedLayouts() {
         </a>
         <nav>
           <ul class="nav-menu" id="nav-menu">
-            <li class="nav-item">
-              <a href="#" class="nav-link" id="nav-capabilities">Capabilities ▾</a>
-              <div class="nav-dropdown">
+            <li class="nav-item nav-item--dropdown" id="nav-capabilities-item">
+              <button type="button" class="nav-link nav-link--toggle" id="nav-capabilities" aria-expanded="false" aria-controls="nav-capabilities-dropdown">
+                Capabilities <span class="nav-chevron" aria-hidden="true">▾</span>
+              </button>
+              <div class="nav-dropdown" id="nav-capabilities-dropdown">
                 <a href="${rootPrefix}capabilities/visual-inspection.html" class="dropdown-link">
                   <span class="dropdown-link-title">Automated Visual Inspection</span>
                   <span class="dropdown-link-desc">Detect stitch, cosmetic & structural defect logs.</span>
@@ -178,27 +180,60 @@ function highlightActiveLink(path) {
 function setupMobileNav() {
   const toggleBtn = document.getElementById('mobile-toggle');
   const navMenu = document.getElementById('nav-menu');
-  
+  const capabilitiesToggle = document.getElementById('nav-capabilities');
+  const capabilitiesItem = document.getElementById('nav-capabilities-item');
+  const mobileMq = window.matchMedia('(max-width: 768px)');
+
+  const setCapabilitiesExpanded = (expanded) => {
+    if (!capabilitiesItem || !capabilitiesToggle) return;
+    capabilitiesItem.classList.toggle('is-expanded', expanded);
+    capabilitiesToggle.setAttribute('aria-expanded', String(expanded));
+  };
+
+  const closeMobileMenu = () => {
+    if (!toggleBtn || !navMenu) return;
+    navMenu.classList.remove('nav-menu--open');
+    toggleBtn.innerHTML = '<span style="font-size: 24px;">☰</span>';
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    setCapabilitiesExpanded(false);
+  };
+
+  const openMobileMenu = () => {
+    if (!toggleBtn || !navMenu) return;
+    navMenu.classList.add('nav-menu--open');
+    toggleBtn.innerHTML = '<span style="font-size: 24px;">✕</span>';
+    toggleBtn.setAttribute('aria-expanded', 'true');
+  };
+
   if (toggleBtn && navMenu) {
     toggleBtn.addEventListener('click', () => {
-      const isVisible = navMenu.style.display === 'flex';
-      if (isVisible) {
-        navMenu.style.display = 'none';
-        toggleBtn.innerHTML = '☰';
-        toggleBtn.setAttribute('aria-expanded', 'false');
+      const isOpen = navMenu.classList.contains('nav-menu--open');
+      if (isOpen) {
+        closeMobileMenu();
       } else {
-        navMenu.style.display = 'flex';
-        navMenu.style.flexDirection = 'column';
-        navMenu.style.position = 'absolute';
-        navMenu.style.top = '100%';
-        navMenu.style.left = '0';
-        navMenu.style.width = '100%';
-        navMenu.style.background = 'var(--bg-secondary)';
-        navMenu.style.padding = '20px';
-        navMenu.style.borderBottom = '1px solid var(--border-color)';
-        toggleBtn.innerHTML = '✕';
-        toggleBtn.setAttribute('aria-expanded', 'true');
+        openMobileMenu();
       }
+    });
+
+    navMenu.querySelectorAll('.dropdown-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (mobileMq.matches) closeMobileMenu();
+      });
+    });
+
+    navMenu.querySelectorAll('.nav-item > .nav-link:not(.nav-link--toggle)').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (mobileMq.matches) closeMobileMenu();
+      });
+    });
+  }
+
+  if (capabilitiesToggle && capabilitiesItem) {
+    capabilitiesToggle.addEventListener('click', (event) => {
+      if (!mobileMq.matches) return;
+      event.preventDefault();
+      const willExpand = !capabilitiesItem.classList.contains('is-expanded');
+      setCapabilitiesExpanded(willExpand);
     });
   }
 }

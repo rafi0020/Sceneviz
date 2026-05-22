@@ -114,6 +114,11 @@ img, video {
   padding: calc(var(--site-header-offset) + 2rem) 0 40px 0;
 }
 
+.page-hero-section .section-desc {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media (min-width: 768px) {
   .section-spacer {
     padding: 80px 0;
@@ -1034,12 +1039,23 @@ select.form-control {
   overflow: hidden;
   border: 1px solid var(--border-color);
   user-select: none;
-  touch-action: pan-y;
+  touch-action: none;
+  cursor: ew-resize;
+  background: var(--bg-secondary);
+}
+
+.matrix-container:focus-visible {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
   .matrix-container {
     height: 300px;
+  }
+
+  .inference-box {
+    font-size: 0.55rem;
   }
 }
 
@@ -1047,25 +1063,43 @@ select.form-control {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
+}
+
+.matrix-img-before {
+  width: 100%;
 }
 
 .matrix-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 50%;
   height: 100%;
   overflow: hidden;
+  z-index: 2;
+  border-right: 2px solid var(--accent-green);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.35);
+}
+
+.matrix-img-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--matrix-width, 100%);
+  max-width: none;
+  filter: brightness(1.08) contrast(1.05);
 }
 
 .matrix-handle {
   position: absolute;
   top: 0;
+  left: 50%;
   width: 4px;
   height: 100%;
+  transform: translateX(-50%);
   background: var(--accent-green);
   cursor: ew-resize;
   z-index: 10;
@@ -1112,7 +1146,34 @@ select.form-control {
 
 .matrix-label-after {
   right: 20px;
+  left: auto;
   border-color: var(--accent-green);
+  z-index: 6;
+}
+
+.inference-box--alert {
+  border-color: hsl(0, 84%, 58%);
+  background: rgba(255, 0, 0, 0.1);
+  color: hsl(0, 90%, 72%);
+  animation: pulse-border-alert 2s infinite ease-in-out;
+}
+
+@keyframes pulse-border-alert {
+  0%, 100% { border-color: hsl(0, 84%, 58%); box-shadow: 0 0 6px rgba(255, 80, 80, 0.25); }
+  50% { border-color: hsl(0, 100%, 75%); box-shadow: 0 0 14px rgba(255, 80, 80, 0.45); }
+}
+
+.table-scroll-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.specs-matrix-table {
+  min-width: 720px;
+  background: var(--bg-tertiary);
+  margin: 0;
 }
 
 /* --- 11. Interactive B2B Tools & Wizards --- */
@@ -1592,6 +1653,27 @@ select.form-control {
   padding: 80px 0 40px 0;
   margin-top: auto; /* Sticky footer: pushes to the absolute bottom in flex container */
   width: 100%;
+}
+
+.site-footer a {
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.site-footer a:hover {
+  color: var(--accent-green);
+}
+
+@media (max-width: 992px) {
+  .site-footer .container[style*='grid-template-columns'] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer .container[style*='grid-template-columns'] {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* --- 16. FAQ Accordion Styles --- */

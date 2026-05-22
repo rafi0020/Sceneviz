@@ -88,17 +88,17 @@ function injectSharedLayouts() {
         <div>
           <h4 style="font-size: 1.05rem; margin-bottom: 20px;">Capabilities</h4>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--text-secondary);">
-            <li><a href="${rootPrefix}capabilities/visual-inspection.html" style="hover:color:var(--accent-green)">Visual Defect Inspection</a></li>
-            <li><a href="${rootPrefix}capabilities/compliance-evidence.html" style="hover:color:var(--accent-green)">Compliance Evidence Logs</a></li>
-            <li><a href="${rootPrefix}capabilities/floor-intelligence.html" style="hover:color:var(--accent-green)">Floor Analytics</a></li>
+            <li><a href="${rootPrefix}capabilities/visual-inspection.html">Visual Defect Inspection</a></li>
+            <li><a href="${rootPrefix}capabilities/compliance-evidence.html">Compliance Evidence Logs</a></li>
+            <li><a href="${rootPrefix}capabilities/floor-intelligence.html">Floor Analytics</a></li>
           </ul>
         </div>
         <div>
           <h4 style="font-size: 1.05rem; margin-bottom: 20px;">Local Trust</h4>
           <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem; color: var(--text-secondary);">
-            <li><a href="${rootPrefix}support-sla.html" style="hover:color:var(--accent-green)">Zone SLAs & Support Map</a></li>
-            <li><a href="${rootPrefix}commercials.html" style="hover:color:var(--accent-green)">Capex & AMC Models</a></li>
-            <li><a href="${rootPrefix}library.html" style="hover:color:var(--accent-green)">Technical Whitepapers</a></li>
+            <li><a href="${rootPrefix}support-sla.html">Zone SLAs & Support Map</a></li>
+            <li><a href="${rootPrefix}commercials.html">Capex & AMC Models</a></li>
+            <li><a href="${rootPrefix}library.html">Technical Whitepapers</a></li>
           </ul>
         </div>
         <div>

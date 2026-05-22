@@ -14,10 +14,20 @@ function initMatrixSlider() {
   if (!container || !overlay || !handle) return;
   
   let active = false;
+  let latestClientX = null;
+  let ticking = false;
   
-  const moveSlider = (clientX) => {
+  const updateSliderPosition = () => {
+    if (latestClientX === null) {
+      ticking = false;
+      return;
+    }
+    
+    // getBoundingClientRect forces layout recalculation. 
+    // By running this inside requestAnimationFrame, we ensure the read/write
+    // cycles are batched and executed optimally by the browser engine.
     const rect = container.getBoundingClientRect();
-    let position = ((clientX - rect.left) / rect.width) * 100;
+    let position = ((latestClientX - rect.left) / rect.width) * 100;
     
     // Bounds checking
     if (position < 0) position = 0;
@@ -25,12 +35,22 @@ function initMatrixSlider() {
     
     overlay.style.width = `${position}%`;
     handle.style.left = `${position}%`;
+    
+    ticking = false;
+  };
+  
+  const requestUpdate = (clientX) => {
+    latestClientX = clientX;
+    if (!ticking) {
+      requestAnimationFrame(updateSliderPosition);
+      ticking = true;
+    }
   };
   
   // Mouse Events
   handle.addEventListener('mousedown', (e) => {
     active = true;
-    e.preventDefault();
+    e.preventDefault(); // Prevents text selection while dragging
   });
   
   window.addEventListener('mouseup', () => {
@@ -39,10 +59,10 @@ function initMatrixSlider() {
   
   window.addEventListener('mousemove', (e) => {
     if (!active) return;
-    moveSlider(e.clientX);
+    requestUpdate(e.clientX);
   });
   
-  // Touch Events for Mobile
+  // Touch Events for Mobile (with touch gesture isolation check)
   handle.addEventListener('touchstart', (e) => {
     active = true;
   }, { passive: true });
@@ -54,7 +74,7 @@ function initMatrixSlider() {
   window.addEventListener('touchmove', (e) => {
     if (!active) return;
     if (e.touches.length > 0) {
-      moveSlider(e.touches[0].clientX);
+      requestUpdate(e.touches[0].clientX);
     }
   }, { passive: true });
   

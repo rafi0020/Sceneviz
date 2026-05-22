@@ -53,11 +53,11 @@ function injectSharedLayouts() {
             <li class="nav-item"><a href="${rootPrefix}commercials.html" class="nav-link" id="nav-commercials">Capex & Commercials</a></li>
           </ul>
         </nav>
-        <a href="${rootPrefix}index.html#assessment-section" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.85rem;">
-          Schedule Assessment
-          <span class="btn-subtext">90-Min Plant Walkthrough</span>
+        <a href="${rootPrefix}commercials.html#camera-wizard" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.85rem; border-color: var(--accent-green); color: var(--accent-green);">
+          Check Camera Compatibility
+          <span class="btn-subtext">Free Instant Wizard</span>
         </a>
-        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
           <span style="font-size: 24px;">☰</span>
         </button>
       </div>
@@ -185,6 +185,7 @@ function setupMobileNav() {
       if (isVisible) {
         navMenu.style.display = 'none';
         toggleBtn.innerHTML = '☰';
+        toggleBtn.setAttribute('aria-expanded', 'false');
       } else {
         navMenu.style.display = 'flex';
         navMenu.style.flexDirection = 'column';
@@ -196,6 +197,7 @@ function setupMobileNav() {
         navMenu.style.padding = '20px';
         navMenu.style.borderBottom = '1px solid var(--border-color)';
         toggleBtn.innerHTML = '✕';
+        toggleBtn.setAttribute('aria-expanded', 'true');
       }
     });
   }
@@ -212,7 +214,7 @@ function setupScrollEffects() {
     } else {
       header?.classList.remove('header-scrolled');
     }
-  });
+  }, { passive: true });
 }
 
 /**

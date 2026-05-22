@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Local Support & SLAs | Scenviz Technologies</title>
   <meta name="description" content="Dedicated 24/7 on-site engineering support in Gazipur, Savar, Narayanganj, and Chittagong. Backed by a 30-day accuracy guarantee SLA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -22,7 +25,7 @@
 
   <!-- 2. Support Map & Zone-Specific SLA Response times -->
   <section class="container" style="padding-top: 0;">
-    <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; margin-bottom: 80px;">
+    <div class="grid-two-cols" style="margin-bottom: 80px;">
       <div>
         <span class="badge">Physical Support Depots</span>
         <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Bangladesh's Only Deployed AI Support Team</h2>
@@ -55,8 +58,8 @@
       </div>
       
       <!-- Styled Map -->
-      <div style="border: 1px solid var(--border-color); border-radius: var(--radius-lg); overflow:hidden; position:relative; background:var(--bg-secondary); padding: 20px;">
-        <img src="/images/support_map.png" alt="Stylized Support Map of Bangladesh visual" style="width:100%; height:450px; object-fit:cover; border-radius:var(--radius-md);">
+      <div class="responsive-img-wrapper" style="background: var(--bg-secondary);">
+        <img src="/images/support_map.png" alt="Stylized Support Map of Bangladesh visual" class="responsive-img responsive-img-support">
         <div class="inference-overlay" style="pointer-events:none;">
           <div class="inference-box" style="top: 35%; left: 45%; border-color:var(--accent-green); background:var(--bg-primary); padding: 4px 8px;">
             Gazipur Depot (Active)
@@ -71,7 +74,7 @@
 
   <!-- 3. The 30-Day Accuracy Guarantee SLA terms -->
   <section id="guarantee" class="section-spacer" style="background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-    <div class="container" style="padding: 0; display:grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items:center;">
+    <div class="container grid-two-cols" style="padding: 0;">
       <div style="border:1px solid var(--border-color); border-radius: var(--radius-lg); overflow:hidden; background: var(--bg-tertiary); padding: 48px;">
         <h3 style="font-family:var(--font-heading); color:var(--accent-green); font-size:1.4rem; margin-bottom:24px; border-bottom:1px solid var(--border-color); padding-bottom:12px;">PILOT SLA ACCURACY TARGETS</h3>
         <p style="color:var(--text-secondary); font-size:0.95rem; margin-bottom:30px;">During our 30-day proof-of-concept phase, our systems must clear these exact performance metrics before contract activation:</p>

@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Automated Visual Inspection Specs | Scenviz Technologies</title>
-  <meta name="description" content="Sub-millimeter precise optical visual defect detection for garment and pharma lines retrofitted onto legacy IP cameras. Deployed on-site on edge nodes.">
+  <meta name="description" content="Deploy real-time optical QA models for stitch, cosmetic, and physical defect detection directly on high-speed industrial production lines.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -22,7 +25,7 @@
 
   <!-- 2. Interactive Before/After Split Slider -->
   <section class="container" style="padding-top: 0;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 80px;">
+    <div class="grid-two-cols" style="margin-bottom: 80px;">
       <div>
         <span class="badge">Drag to Test Inference</span>
         <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Real-Time Sub-Millimeter Defect Mapping</h2>
@@ -44,18 +47,18 @@
         <img class="matrix-img" src="/images/hero_visual.png" alt="Raw video stream visual">
         <span class="matrix-label matrix-label-before">RAW IP CAMERA FEED</span>
         
-        <!-- After View (AI Inference) -->
+        <!-- After View (AI Inference) — different image showing detected bounding boxes -->
         <div class="matrix-overlay">
-          <img class="matrix-img" src="/images/hero_visual.png" alt="AI inference video stream visual" style="filter: brightness(1.15) contrast(1.1);">
+          <img class="matrix-img" src="/images/packaging_inspection.png" alt="AI inference video stream with defect detection bounding boxes" style="filter: brightness(1.1) contrast(1.05);">
           <div class="inference-overlay">
             <div class="inference-box" style="top: 30%; left: 35%; width: 140px; height: 100px; border-color: red; background: rgba(255,0,0,0.08); color: red;">
-              [STITCH SKIP] 94.2%<br>Defect ID #D-291
+              [LABEL DEFECT] 94.2%<br>Defect ID #D-291
             </div>
             <div class="inference-box" style="top: 15%; left: 60%; width: 110px; height: 70px;">
-              [SEAM OK] 99.8%
+              [SEAL OK] 99.8%
             </div>
             <div class="inference-box" style="top: 65%; left: 10%; width: 130px; height: 80px;">
-              [LINE FLOW OK]
+              [BARCODE OK]
             </div>
           </div>
           <span class="matrix-label matrix-label-after">SCENVIZ REAL-TIME INFERENCE</span>
@@ -126,7 +129,7 @@
 
   <!-- 4. Low-Latency Local Rejection (PLC) Integration Blueprint -->
   <section class="container" style="padding-bottom: 0;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    <div class="grid-two-cols">
       <div style="border:1px solid var(--border-color); border-radius: var(--radius-lg); overflow:hidden; background: var(--bg-secondary); padding: 40px;">
         <h4 style="font-family: var(--font-heading); color: var(--accent-green); font-size: 1.25rem; margin-bottom: 24px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">EDGE REJECTION INTEGRATION TIMELINE</h4>
         

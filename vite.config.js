@@ -23,7 +23,8 @@ export default defineConfig({
         supportSla: resolve(__dirname, 'support-sla.html'),
         commercials: resolve(__dirname, 'commercials.html'),
         library: resolve(__dirname, 'library.html'),
-        deployments: resolve(__dirname, 'deployments.html')
+        deployments: resolve(__dirname, 'deployments.html'),
+        privacyDataCustody: resolve(__dirname, 'privacy-data-custody.html')
       }
     }
   }

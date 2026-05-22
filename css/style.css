@@ -561,27 +561,84 @@ select.form-control {
   margin-bottom: 60px;
 }
 
+/* --- Hero Focal-Depth Carousel --- */
 .hero-carousel-wrapper {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border-color);
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   aspect-ratio: 4 / 3;
+  perspective: 1200px;
 }
 
 .hero-carousel-track {
-  display: flex;
+  position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
 }
 
+/* Each slide stacks absolutely and transitions scale/blur/opacity */
 .hero-carousel-slide {
-  min-width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  border-radius: var(--radius-md);
+  transform: scale(0.78) translateX(110%);
+  filter: blur(4px) brightness(0.5);
+  opacity: 0;
+  z-index: 0;
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0.4s;
+  pointer-events: none;
+}
+
+/* ACTIVE — sharp, full-size, in focus */
+.hero-carousel-slide.is-active {
+  transform: scale(1) translateX(0);
+  filter: blur(0) brightness(1);
+  opacity: 1;
+  z-index: 3;
+  pointer-events: auto;
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0s;
+}
+
+/* PREVIOUS — slightly visible, left, scaled down, blurred */
+.hero-carousel-slide.is-prev {
+  transform: scale(0.78) translateX(-110%);
+  filter: blur(4px) brightness(0.5);
+  opacity: 0.4;
+  z-index: 1;
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0s;
+}
+
+/* NEXT — slightly visible, right, scaled down, blurred */
+.hero-carousel-slide.is-next {
+  transform: scale(0.78) translateX(110%);
+  filter: blur(4px) brightness(0.5);
+  opacity: 0.4;
+  z-index: 1;
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    z-index 0s 0s;
 }
 
 .hero-carousel-slide img {
@@ -596,11 +653,21 @@ select.form-control {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 16px 20px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 20px 24px;
+  background: linear-gradient(transparent 0%, rgba(0,0,0,0.92) 100%);
   display: flex;
   flex-direction: column;
   gap: 4px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-carousel-slide.is-active .hero-carousel-caption {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-carousel-tag {
@@ -622,7 +689,7 @@ select.form-control {
 
 .hero-carousel-indicators {
   position: absolute;
-  bottom: 70px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;

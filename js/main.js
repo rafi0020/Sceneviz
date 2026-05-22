@@ -71,7 +71,7 @@ function injectSharedLayouts() {
   // B. INJECT FOOTER (append to body)
   const footerHtml = `
     <footer class="site-footer">
-      <div class="container" style="padding: 0; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 60px;">
+      <div class="container site-footer-grid">
         <div style="display: flex; flex-direction: column; gap: 20px;">
           <a href="${rootPrefix}index.html" class="logo-link">
             <div class="logo-icon">S</div>
@@ -111,9 +111,9 @@ function injectSharedLayouts() {
           </ul>
         </div>
       </div>
-      <div class="container" style="padding: 30px 0 0 0; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: var(--text-muted);">
+      <div class="container site-footer-bar">
         <p>&copy; ${new Date().getFullYear()} Scenviz Technologies. All Rights Reserved. Made in Bangladesh.</p>
-        <div style="display: flex; gap: 24px;">
+        <div class="site-footer-bar-links">
           <a href="${rootPrefix}privacy-data-custody.html">Local Data Custody Policy</a>
           <a href="${rootPrefix}support-sla.html#guarantee">30-Day Guarantee Terms</a>
         </div>

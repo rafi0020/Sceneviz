@@ -1,19 +1,58 @@
 /* ==========================================================================
    SCENVIZ TECHNOLOGIES - Hero Focal-Depth Carousel Controller
-   Scale-on-focus carousel: active slide is sharp and full-size,
-   neighbors are scaled down and blurred for a depth-of-field effect.
+   Scale-on-focus: active slide sharp/full-size; neighbors scaled + blurred.
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
-  initHeroCarousel();
-});
+import { DEPLOYMENT_SLIDES } from './deployments-data.js';
 
-function initHeroCarousel() {
-  const track = document.getElementById('hero-carousel-track');
-  const dotsContainer = document.getElementById('hero-carousel-indicators');
-  const counterEl = document.getElementById('hero-carousel-current');
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
 
-  if (!track || !dotsContainer || !counterEl) return;
+function renderSlide(slide, index) {
+  return `
+    <div class="hero-carousel-slide" data-slide-index="${index}">
+      <img src="${escapeHtml(slide.image)}" alt="${escapeHtml(slide.alt)}" loading="${index < 2 ? 'eager' : 'lazy'}">
+      <div class="hero-carousel-caption">
+        <span class="hero-carousel-tag">${escapeHtml(slide.tag)}</span>
+        <span class="hero-carousel-title">${escapeHtml(slide.title)}</span>
+      </div>
+    </div>`;
+}
+
+function populateCarouselMarkup(wrapper) {
+  const track = wrapper.querySelector('.hero-carousel-track');
+  const dotsContainer = wrapper.querySelector('.hero-carousel-indicators');
+  const totalEl = wrapper.querySelector('.hero-carousel-total');
+
+  if (!track || !dotsContainer) return false;
+
+  const total = DEPLOYMENT_SLIDES.length;
+  const totalLabel = String(total).padStart(2, '0');
+
+  track.innerHTML = DEPLOYMENT_SLIDES.map(renderSlide).join('');
+  dotsContainer.innerHTML = DEPLOYMENT_SLIDES.map(
+    (_, i) =>
+      `<button type="button" class="hero-carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}" aria-label="Deployment ${i + 1} of ${total}"></button>`
+  ).join('');
+
+  if (totalEl) totalEl.textContent = totalLabel;
+
+  return true;
+}
+
+function initHeroCarousel(wrapper) {
+  if (!populateCarouselMarkup(wrapper)) return;
+
+  const track = wrapper.querySelector('.hero-carousel-track');
+  const dotsContainer = wrapper.querySelector('.hero-carousel-indicators');
+  const counterEl = wrapper.querySelector('.hero-carousel-current');
+  const prevBtn = wrapper.querySelector('.hero-carousel-nav--prev');
+  const nextBtn = wrapper.querySelector('.hero-carousel-nav--next');
 
   const slides = Array.from(track.querySelectorAll('.hero-carousel-slide'));
   const dots = Array.from(dotsContainer.querySelectorAll('.hero-carousel-dot'));
@@ -22,21 +61,13 @@ function initHeroCarousel() {
   let autoplayTimer = null;
   const INTERVAL_MS = 3500;
 
-  /**
-   * Apply focal-depth classes to slides based on current index.
-   * - is-active:  scale(1), no blur, full opacity — center stage
-   * - is-prev:    scale(0.78), blur(4px), dim — peeking from the left
-   * - is-next:    scale(0.78), blur(4px), dim — peeking from the right
-   * - (default):  hidden off to the right side
-   */
   function goToSlide(index) {
-    currentIndex = index;
+    currentIndex = ((index % totalSlides) + totalSlides) % totalSlides;
 
     const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     const nextIndex = (currentIndex + 1) % totalSlides;
 
     slides.forEach((slide, i) => {
-      // Clear all state classes
       slide.classList.remove('is-active', 'is-prev', 'is-next');
 
       if (i === currentIndex) {
@@ -46,20 +77,23 @@ function initHeroCarousel() {
       } else if (i === nextIndex) {
         slide.classList.add('is-next');
       }
-      // All others remain in default state (hidden, scaled down, off-screen)
     });
 
-    // Update dot indicators
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });
 
-    // Update counter display
-    counterEl.textContent = String(currentIndex + 1).padStart(2, '0');
+    if (counterEl) {
+      counterEl.textContent = String(currentIndex + 1).padStart(2, '0');
+    }
   }
 
   function nextSlide() {
-    goToSlide((currentIndex + 1) % totalSlides);
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
   }
 
   function startAutoplay() {
@@ -74,7 +108,6 @@ function initHeroCarousel() {
     }
   }
 
-  // Dot click — jump to slide
   dots.forEach((dot) => {
     dot.addEventListener('click', () => {
       const idx = parseInt(dot.getAttribute('data-index'), 10);
@@ -83,14 +116,35 @@ function initHeroCarousel() {
     });
   });
 
-  // Pause on hover, resume on leave
-  const wrapper = track.closest('.hero-carousel-wrapper');
-  if (wrapper) {
-    wrapper.addEventListener('mouseenter', stopAutoplay);
-    wrapper.addEventListener('mouseleave', startAutoplay);
-  }
+  prevBtn?.addEventListener('click', () => {
+    prevSlide();
+    startAutoplay();
+  });
 
-  // Initialize
+  nextBtn?.addEventListener('click', () => {
+    nextSlide();
+    startAutoplay();
+  });
+
+  wrapper.addEventListener('mouseenter', stopAutoplay);
+  wrapper.addEventListener('mouseleave', startAutoplay);
+
+  wrapper.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      prevSlide();
+      startAutoplay();
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      nextSlide();
+      startAutoplay();
+    }
+  });
+
   goToSlide(0);
   startAutoplay();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-hero-carousel]').forEach(initHeroCarousel);
+});

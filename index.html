@@ -41,106 +41,18 @@
         </div>
       </div>
       
-      <!-- Auto-Scrolling Deployment Carousel -->
-      <div class="hero-carousel-wrapper">
-        <div class="hero-carousel-track" id="hero-carousel-track">
-          <!-- Slide 1 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/surveillance_dashboard.png" alt="Multi-branch AI surveillance dashboard">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Safety & Compliance</span>
-              <span class="hero-carousel-title">344-Camera Fleet Surveillance</span>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/compliance_mockup.png" alt="Manufacturing SOP compliance dashboard">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Audit Automation</span>
-              <span class="hero-carousel-title">21-Assertion Compliance Audit</span>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/container_ocr.png" alt="Chittagong port container OCR">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Logistics & OCR</span>
-              <span class="hero-carousel-title">Container Code Recognition</span>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/packaging_inspection.png" alt="Barcode and label verification">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Packaging QA</span>
-              <span class="hero-carousel-title">Label & Barcode Verification</span>
-            </div>
-          </div>
-          <!-- Slide 5 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/safety_skeleton.png" alt="Pose compliance safety tracking">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Worker Safety</span>
-              <span class="hero-carousel-title">Pose-Based Fall Risk Detection</span>
-            </div>
-          </div>
-          <!-- Slide 6 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/counterfeit_detection.png" alt="Counterfeit packaging detection">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Brand Protection</span>
-              <span class="hero-carousel-title">Counterfeit Signature Checker</span>
-            </div>
-          </div>
-          <!-- Slide 7 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/crowd_depth.png" alt="3D crowd density tracking">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Crowd Analytics</span>
-              <span class="hero-carousel-title">Spatial 3D Density Heatmap</span>
-            </div>
-          </div>
-          <!-- Slide 8 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/multi_hazard_safety.png" alt="Multi-hazard warehouse safety HUD">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Multi-Hazard</span>
-              <span class="hero-carousel-title">PPE & Overspeed Monitor</span>
-            </div>
-          </div>
-          <!-- Slide 9 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/hero_visual.png" alt="Line scan surface inspection">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Surface Inspection</span>
-              <span class="hero-carousel-title">800m/min Web Defect Scanner</span>
-            </div>
-          </div>
-          <!-- Slide 10 -->
-          <div class="hero-carousel-slide">
-            <img src="/images/tamper_detection.png" alt="Surveillance vault tamper detection">
-            <div class="hero-carousel-caption">
-              <span class="hero-carousel-tag">Tamper Detection</span>
-              <span class="hero-carousel-title">Visual Integrity Audit Proof</span>
-            </div>
-          </div>
-        </div>
-        <!-- Carousel Indicators -->
-        <div class="hero-carousel-indicators" id="hero-carousel-indicators">
-          <button class="hero-carousel-dot active" data-index="0" aria-label="Slide 1"></button>
-          <button class="hero-carousel-dot" data-index="1" aria-label="Slide 2"></button>
-          <button class="hero-carousel-dot" data-index="2" aria-label="Slide 3"></button>
-          <button class="hero-carousel-dot" data-index="3" aria-label="Slide 4"></button>
-          <button class="hero-carousel-dot" data-index="4" aria-label="Slide 5"></button>
-          <button class="hero-carousel-dot" data-index="5" aria-label="Slide 6"></button>
-          <button class="hero-carousel-dot" data-index="6" aria-label="Slide 7"></button>
-          <button class="hero-carousel-dot" data-index="7" aria-label="Slide 8"></button>
-          <button class="hero-carousel-dot" data-index="8" aria-label="Slide 9"></button>
-          <button class="hero-carousel-dot" data-index="9" aria-label="Slide 10"></button>
-        </div>
-        <!-- Counter -->
+      <!-- Deployment carousel: populated from js/deployments-data.js -->
+      <div class="hero-carousel-wrapper" data-hero-carousel tabindex="0" aria-roledescription="carousel" aria-label="Proven deployment showcases">
+        <button type="button" class="hero-carousel-nav hero-carousel-nav--prev" aria-label="Previous deployment">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <div class="hero-carousel-track" id="hero-carousel-track"></div>
+        <button type="button" class="hero-carousel-nav hero-carousel-nav--next" aria-label="Next deployment">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <div class="hero-carousel-indicators" id="hero-carousel-indicators"></div>
         <div class="hero-carousel-counter">
-          <span id="hero-carousel-current">01</span> / <span>10</span>
+          <span class="hero-carousel-current" id="hero-carousel-current">01</span> / <span class="hero-carousel-total" id="hero-carousel-total">10</span>
         </div>
       </div>
     </div>

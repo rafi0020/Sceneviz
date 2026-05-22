@@ -235,12 +235,11 @@ img, video {
 .responsive-img-dashboard {
   width: 100%;
   height: auto;
-  min-height: 360px;
-  max-height: 500px;
   object-fit: contain;
   background: var(--bg-secondary);
   padding: 16px;
   border-radius: var(--radius-md);
+  display: block;
 }
 
 .responsive-img-compliance {

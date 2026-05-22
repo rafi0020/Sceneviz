@@ -690,7 +690,7 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
           <div class="hero-carousel-counter">
-            <span class="hero-carousel-current">01</span> / <span class="hero-carousel-total">10</span>
+            <span class="hero-carousel-current">01</span> / <span class="hero-carousel-total">08</span>
           </div>
         </div>
         <div class="hero-carousel-meta">
@@ -853,257 +853,215 @@
     <!-- Deployments Grid -->
     <div class="deployments-grid" id="deployments-grid">
 
-      <!-- Scenario 1 Card -->
+      <!-- Scenario 1 Card: Access Control & Facial Analytics -->
       <div class="deployment-card visible" data-category="compliance">
-        <!-- Left Visual Column -->
         <div class="card-visual-column">
           <div class="card-image-wrapper">
-            <img src="/images/surveillance_dashboard.png" alt="Multi-branch AI surveillance dashboard showing 344 channels">
+            <img src="./images/surveillance_dashboard.png" alt="Centralized facial recognition, attendance tracking, and unauthorized access alerts dashboard">
             <div class="card-image-overlay"></div>
           </div>
-          <!-- Headline Metric Overlay -->
           <div class="card-metric-overlay">
             <div class="card-metric-overlay-container">
-              <span class="card-metric-value">344 Streams, 0 Operators</span>
-              <span class="card-metric-label">Centralized Fleet Deployment Metric</span>
+              <span class="card-metric-value">99.8% Recognition Accuracy</span>
+              <span class="card-metric-label">Local Offline Facial Embeddings Engine</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Content Column -->
         <div class="card-content-column">
           <div>
             <span class="card-category-tag">Workplace Safety & Compliance</span>
-            <h3 class="card-title">344 Cameras. Zero Operators. One Secure System.</h3>
-            
+            <h3 class="card-title">Enterprise Access Control & Facial Analytics Suite</h3>
             <div class="card-details-grid">
               <div class="card-desc-block">
                 <span class="card-label">The Problem</span>
-                <p>Legacy branch surveillance relied on manual monitoring, leading to missed security breaches and undetected camera tampering due to operator fatigue.</p>
+                <p>Manual fingerprint and card punching created heavy bottlenecks at shift changes, while unauthorized entry into high-risk storage zones went undetected, increasing safety and leakage risks.</p>
               </div>
               <div class="card-desc-block">
                 <span class="card-label">The Scenviz Approach</span>
-                <p>Deployed a centralized, dual-GPU edge cluster monitoring 344 channels. Runs real-time parallel pipelines for open-vocabulary entry analysis, tamper logging, and pose tracking.</p>
+                <p>Soft-deployed localized Face-Recognition pipelines on local edge clusters. Processes existing CCTV feeds to verify identities and zones in under 100ms with zero cloud dependencies.</p>
               </div>
-              
               <div>
                 <span class="card-label">Verified Outcomes</span>
                 <ul class="card-bullets">
-                  <li>Processes 172 simultaneous camera channels per GPU in real-time with zero packet drops.</li>
-                  <li>Identifies lens occlusions, redirection, and focus drifts using a 10-frame rolling state machine.</li>
-                  <li>Secures transaction event logs locally using localized write-ahead database tables with background queues.</li>
+                  <li><strong>Facial Attendance (Entry/Exit):</strong> Automates shift check-in and checkout logging at main factory gates.</li>
+                  <li><strong>Facial Recognition (Inner Movement):</strong> Tracks which employees appeared in specific active zones and at what precise times.</li>
+                  <li><strong>Authorized/Unauthorized Access Alert:</strong> Triggers instant alerts to security supervisors when restricted area entry is violated.</li>
                 </ul>
-                
-                <!-- Related cross-sell navigation link -->
-                <a href="javascript:void(0);" onclick="scrollToScenario(10)" class="related-scenarios-badge">
-                  🔍 Related: Surveillance Integrity & Tamper Proofs (Scenario 10)
-                </a>
               </div>
             </div>
           </div>
-
-          <!-- Card Footer -->
           <div class="card-footer-area">
             <div class="card-tags">
-              <span class="card-tag">Multi-camera Fleet</span>
+              <span class="card-tag">Access Control</span>
+              <span class="card-tag">Facial Recognition</span>
               <span class="card-tag">Edge Deployment</span>
-              <span class="card-tag">Tamper Intelligence</span>
             </div>
-            
             <a href="#assessment-section" class="card-cta-link">
-              Review multi-camera fleet deployment specifications
+              Review access control deployment specifications
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Scenario 2 Card -->
-      <div class="deployment-card visible" data-category="compliance">
-        <!-- Left Visual Column -->
-        <div class="card-visual-column">
-          <div class="card-image-wrapper">
-            <img src="/images/compliance_mockup.png" alt="Manufacturing SOP Compliance auditing dashboard">
-            <div class="card-image-overlay"></div>
-          </div>
-          <!-- Headline Metric Overlay -->
-          <div class="card-metric-overlay">
-            <div class="card-metric-overlay-container">
-              <span class="card-metric-value">21 Procedural Audits Automated</span>
-              <span class="card-metric-label">Continuous Shift SOP Assertions</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Content Column -->
-        <div class="card-content-column">
-          <div>
-            <span class="card-category-tag">Workplace Safety & Compliance</span>
-            <h3 class="card-title">21-Assertion Factory Floor Compliance Audit Passed</h3>
-            
-            <div class="card-details-grid">
-              <div class="card-desc-block">
-                <span class="card-label">The Problem</span>
-                <p>Manual shift auditing was slow, labor-intensive, and prone to human oversight, letting safety breaches and SOP deviations slip through at critical junctions.</p>
-              </div>
-              <div class="card-desc-block">
-                <span class="card-label">The Scenviz Approach</span>
-                <p>Installed a real-time RTSP-based auditing system utilizing multi-process supervisor pipelines and Redis IPC to run 21 procedural compliance assertions simultaneously.</p>
-              </div>
-              
-              <div>
-                <span class="card-label">Verified Outcomes</span>
-                <ul class="card-bullets">
-                  <li>Monitors operator actions including bale opening, weight-station stepping, and barcode validations.</li>
-                  <li>Eliminates processing lag by initializing persistent thread pools at system startup rather than per-frame.</li>
-                  <li>Applies strict time-to-live deduplication logic to prevent double-logging of continuous safety events.</li>
-                </ul>
-                
-                <!-- Related cross-sell navigation link -->
-                <a href="javascript:void(0);" onclick="scrollToScenario(5)" class="related-scenarios-badge">
-                  🔍 Related: Workplace Safety Monitoring & Pose (Scenario 5)
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="card-footer-area">
-            <div class="card-tags">
-              <span class="card-tag">Compliance Evidence</span>
-              <span class="card-tag">Real-time Detection</span>
-              <span class="card-tag">Edge Deployment</span>
-            </div>
-            
-            <a href="#assessment-section" class="card-cta-link">
-              Review procedural audit automation capabilities
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scenario 3 Card -->
+      <!-- Scenario 2 Card: People Flow & Density Analytics -->
       <div class="deployment-card visible" data-category="logistics">
-        <!-- Left Visual Column -->
         <div class="card-visual-column">
           <div class="card-image-wrapper">
-            <img src="/images/container_ocr.png" alt="Chittagong port container tracking OCR HUD camera feed">
+            <img src="./images/crowd_depth.png" alt="Real-time footfall counting and regional density heatmaps">
             <div class="card-image-overlay"></div>
           </div>
-          <!-- Headline Metric Overlay -->
           <div class="card-metric-overlay">
             <div class="card-metric-overlay-container">
-              <span class="card-metric-value">99%+ OCR Read Accuracy</span>
-              <span class="card-metric-label">Verified ISO 6346 Depot Code Output</span>
+              <span class="card-metric-value">99.9% Counting Accuracy</span>
+              <span class="card-metric-label">Dynamic Spatial Perspective Correction</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Content Column -->
         <div class="card-content-column">
           <div>
             <span class="card-category-tag">Logistics & Operations</span>
-            <h3 class="card-title">99%+ Container Code Read Rate Achieved</h3>
-            
+            <h3 class="card-title">High-Precision Footfall & Crowd Density Heatmapping</h3>
             <div class="card-details-grid">
               <div class="card-desc-block">
                 <span class="card-label">The Problem</span>
-                <p>Container tracking at busy Chittagong depots was bottlenecked by manual transcription errors and heavy environmental glare, dust, and wide-angle distortions.</p>
+                <p>Overcrowded sorting corridors and shipping docks caused physical safety hazards and blocked critical emergency fire lanes, violating amfori BSCI floor compliance rules.</p>
               </div>
               <div class="card-desc-block">
                 <span class="card-label">The Scenviz Approach</span>
-                <p>Integrated low-power edge units with physical gate sensors to automatically capture, undistort, and validate container serials against ISO 6346 standards.</p>
+                <p>Engineered depth-aware spatial tracking algorithms that correct for wide-angle camera perspective distortions to count people and analyze density on active production floors.</p>
               </div>
-              
               <div>
                 <span class="card-label">Verified Outcomes</span>
                 <ul class="card-bullets">
-                  <li>Processes alphanumeric container markings under high-speed stacker motion and deep shadows.</li>
-                  <li>Applies a localized syntax correction model to resolve scratched or faded character strings.</li>
-                  <li>Deploys three-layer gating checks (internal memory array, 30-second gate, and Bluetooth check).</li>
+                  <li><strong>Footfall & People Counting:</strong> Automatically logs regional foot traffic across gates, warehouse entrypoints, and shipping corridors.</li>
+                  <li><strong>Crowd Density Heatmapping:</strong> Displays visual real-time occupant density in specific active zones on centralized supervisor HUDs.</li>
+                  <li><strong>Compliance Audit Evidence:</strong> Logs timestamped proof of clear corridors and walkways to satisfy international export audits.</li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- Card Footer -->
           <div class="card-footer-area">
             <div class="card-tags">
-              <span class="card-tag">OCR & Verification</span>
-              <span class="card-tag">Edge Deployment</span>
-              <span class="card-tag">Real-time Detection</span>
+              <span class="card-tag">Footfall Counting</span>
+              <span class="card-tag">Density Heatmapping</span>
+              <span class="card-tag">Flow Analytics</span>
             </div>
-            
             <a href="#assessment-section" class="card-cta-link">
-              Verify depot gate tracking automation specs
+              Consult on people flow & density mapping setups
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Scenario 4 Card -->
-      <div class="deployment-card visible" data-category="quality">
-        <!-- Left Visual Column -->
+      <!-- Scenario 3 Card: Safety, Threat & Anomaly Detection -->
+      <div class="deployment-card visible" data-category="compliance">
         <div class="card-visual-column">
           <div class="card-image-wrapper">
-            <img src="/images/packaging_inspection.png" alt="High speed filling line barcode and label verification station">
+            <img src="./images/safety_skeleton.png" alt="Edge-AI perimeter intrusion, threat objects, and anomaly detection dashboard">
             <div class="card-image-overlay"></div>
           </div>
-          <!-- Headline Metric Overlay -->
           <div class="card-metric-overlay">
             <div class="card-metric-overlay-container">
-              <span class="card-metric-value">99.5%+ Verification Accuracy</span>
-              <span class="card-metric-label">Catalog Matching & Fallback Decode Rate</span>
+              <span class="card-metric-value">&lt; 50ms Inference Latency</span>
+              <span class="card-metric-label">Edge Anomaly Alert Pipeline</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Content Column -->
         <div class="card-content-column">
           <div>
-            <span class="card-category-tag">Quality & Brand Protection</span>
-            <h3 class="card-title">99.5% Label and Barcode Match Accuracy</h3>
-            
+            <span class="card-category-tag">Workplace Safety & Compliance</span>
+            <h3 class="card-title">Real-Time Perimeter Intrusion & Behavioral Alerts</h3>
             <div class="card-details-grid">
               <div class="card-desc-block">
                 <span class="card-label">The Problem</span>
-                <p>Manual packaging checks on high-speed filling lines resulted in mislabeled products and catalog mismatched shipments from skewed orientations or low-light scan errors.</p>
+                <p>Dangerous machine perimeter breaches, unexpected slips, or aggressive floor activities required instantaneous automated logging to avoid critical worker injury downtime.</p>
               </div>
               <div class="card-desc-block">
                 <span class="card-label">The Scenviz Approach</span>
-                <p>Developed a product verification interface powered by a cascaded classification engine that performs barcode decoding and character recognition concurrently.</p>
+                <p>Deployed multi-task networks that concurrently process raw security streams to run real-time perimeter, posture, and action-based safety checking at the edge.</p>
               </div>
-              
               <div>
                 <span class="card-label">Verified Outcomes</span>
                 <ul class="card-bullets">
-                  <li>Validates front-label specifications against the active product catalog using fuzzy-matching rules.</li>
-                  <li>Cascaded scanner architecture handles warped, reflecting, or partially occluded barcodes.</li>
-                  <li>Utilizes a local hardware media interface to lock camera constraints directly on the active floor.</li>
+                  <li><strong>Perimeter Intrusion Detection:</strong> Instantly alerts security when any person steps inside a defined high-risk ROI (Region of Interest) zone.</li>
+                  <li><strong>Behavioral Anomaly & Action:</strong> Identifies worker falls via <em>Lying on the Floor</em> detection, and flags <em>Violence & Action Recognition</em> (throwing objects).</li>
+                  <li><strong>Threat & Vandalism Detection:</strong> Detects unauthorized masks, helmets, sticks, or tools, triggering automated <em>Illegal Activities</em> and vandalism alerts.</li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- Card Footer -->
           <div class="card-footer-area">
             <div class="card-tags">
-              <span class="card-tag">OCR & Verification</span>
-              <span class="card-tag">Defect Detection</span>
-              <span class="card-tag">Brand Protection</span>
+              <span class="card-tag">Intrusion ROI</span>
+              <span class="card-tag">Behavioral Anomaly</span>
+              <span class="card-tag">Threat Detection</span>
             </div>
-            
             <a href="#assessment-section" class="card-cta-link">
-              Consult on industrial packaging inspection systems
+              Review perimeter and anomaly safety layouts
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Row Divider Trust Anchor: Physical SLA Depot Support Map (Bangladesh First) -->
+      <!-- Scenario 4 Card: Vehicle & ANPR Logistics Intelligence -->
+      <div class="deployment-card visible" data-category="logistics">
+        <div class="card-visual-column">
+          <div class="card-image-wrapper">
+            <img src="./images/container_ocr.png" alt="Automatic number plate recognition, vehicle tracking, and overspeed HUD">
+            <div class="card-image-overlay"></div>
+          </div>
+          <div class="card-metric-overlay">
+            <div class="card-metric-overlay-container">
+              <span class="card-metric-value">99.4% OCR Precision</span>
+              <span class="card-metric-label">Low-Light ANPR Capture Rate</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content-column">
+          <div>
+            <span class="card-category-tag">Logistics & Operations</span>
+            <h3 class="card-title">Vehicle Analytics & ANPR Systems</h3>
+            <div class="card-details-grid">
+              <div class="card-desc-block">
+                <span class="card-label">The Problem</span>
+                <p>Manual vehicle entry tracking caused extensive gate log jams, while excessive truck speeds and uncontrolled logistics traffic increased collision risks on industrial premises.</p>
+              </div>
+              <div class="card-desc-block">
+                <span class="card-label">The Scenviz Approach</span>
+                <p>Combined high-speed optical character recognition (OCR) with deep spatial tracking algorithms to automate logistics gates and monitor traffic velocities in real-time.</p>
+              </div>
+              <div>
+                <span class="card-label">Verified Outcomes</span>
+                <ul class="card-bullets">
+                  <li><strong>Vehicle & Number Plate Detection:</strong> Captures and tracks all incoming and outgoing logistics trucks.</li>
+                  <li><strong>ANPR Gate Automation:</strong> Decodes and validates license plates using local syntax structures, syncing directly with gate SCADA and ERP databases.</li>
+                  <li><strong>Speed & Collision Prevention:</strong> Constantly audits vehicle speeds (Overspeed Detection) and monitors critical Vehicle-Human Collision risk points.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer-area">
+            <div class="card-tags">
+              <span class="card-tag">ANPR Systems</span>
+              <span class="card-tag">OCR Gating</span>
+              <span class="card-tag">Vehicle Analytics</span>
+            </div>
+            <a href="#assessment-section" class="card-cta-link">
+              Consult on ANPR and vehicle fleet installations
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row Divider Trust Anchor: Physical SLA Depot Support Map -->
       <div class="sla-divider-anchor" id="sla-map-anchor">
         <div>
           <span class="sla-map-indicator">🛡️ LOCAL PHYSICAL DEFENSE DEPOT ACTIVE</span>
@@ -1111,7 +1069,6 @@
           <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
             Downtime on active shifts is unacceptable. Imported software lacks on-site hardware or optical recovery paths when configurations drift. Scenviz guarantees physical, certified systems engineering deployments stationed locally in active export zones.
           </p>
-          
           <div style="display:flex; flex-direction:column; gap: 10px; font-size: 0.85rem; border-top:1px solid var(--border-color); padding-top: 15px;">
             <div style="display:flex; justify-content:space-between;">
               <strong style="color:var(--text-primary)">Dhaka / Gazipur / Savar Corridor:</strong>
@@ -1127,391 +1084,221 @@
             </div>
           </div>
         </div>
-        
-        <!-- Styled Map Preview Graphics or Visual Spec placeholder -->
         <div style="border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow:hidden; background: var(--bg-tertiary); padding: 16px; display:flex; flex-direction:column; align-items:center; justify-content:center;">
           <svg viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
-            <!-- Bangladesh outline representation (abstract grid pins) -->
             <path d="M120 20 L160 30 L190 70 L210 110 L190 140 L160 170 L140 200 L120 180 L100 150 L90 120 L100 80 Z" fill="none" stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="3 3" />
-            
-            <!-- Depot 1: Dhaka/Gazipur -->
             <circle cx="140" cy="80" r="6" fill="var(--accent-green)" />
             <circle cx="140" cy="80" r="16" stroke="var(--accent-green)" stroke-width="1.5" opacity="0.4" style="animation: pulse 2s infinite;" />
             <text x="152" y="78" fill="var(--text-primary)" font-size="9" font-family="var(--font-heading)" font-weight="700">GAZIPUR DEPOT</text>
             <text x="152" y="87" fill="var(--accent-green)" font-size="7.5" font-family="monospace">2hr SLA Corridor</text>
-
-            <!-- Depot 2: Chittagong CEPZ -->
             <circle cx="190" cy="150" r="6" fill="var(--accent-green)" />
             <circle cx="190" cy="150" r="16" stroke="var(--accent-green)" stroke-width="1.5" opacity="0.4" style="animation: pulse 2s infinite;" />
             <text x="202" y="148" fill="var(--text-primary)" font-size="9" font-family="var(--font-heading)" font-weight="700">CHITTAGONG DEPOT</text>
             <text x="202" y="157" fill="var(--accent-green)" font-size="7.5" font-family="monospace">4hr CEPZ Depot</text>
-            
-            <!-- Connection lines -->
             <path d="M140 80 L190 150" stroke="var(--text-muted)" stroke-width="1.2" stroke-dasharray="2 4" />
             <text x="145" y="125" fill="var(--text-muted)" font-size="7" font-family="monospace">SLA RELAY DATA PATH</text>
           </svg>
         </div>
       </div>
 
-      <!-- Scenario 5 Card -->
+      <!-- Scenario 5 Card: PPE Compliance Monitoring -->
       <div class="deployment-card visible" data-category="compliance">
-        <!-- Left Visual Column -->
         <div class="card-visual-column">
           <div class="card-image-wrapper">
-            <img src="/images/safety_skeleton.png" alt="Staircase and hazard zone safety pose compliance tracking feed">
+            <img src="./images/multi_hazard_safety.png" alt="Industrial PPE compliance monitoring with zero false alarms HUD">
             <div class="card-image-overlay"></div>
           </div>
-          <!-- Headline Metric Overlay -->
           <div class="card-metric-overlay">
             <div class="card-metric-overlay-container">
-              <span class="card-metric-value">0 False Positives Logged</span>
-              <span class="card-metric-label">30-Day Floor Audit Stability</span>
+              <span class="card-metric-value">0 False Alarms in 30 Days</span>
+              <span class="card-metric-label">Temporal Stability Safety Filter</span>
             </div>
           </div>
         </div>
-
-        <!-- Right Content Column -->
         <div class="card-content-column">
           <div>
             <span class="card-category-tag">Workplace Safety & Compliance</span>
-            <h3 class="card-title">Zero False Positives Across 30-Day Audit</h3>
-            
+            <h3 class="card-title">PPE Compliance Monitoring</h3>
             <div class="card-details-grid">
               <div class="card-desc-block">
                 <span class="card-label">The Problem</span>
-                <p>High-risk manufacturing walkways and stairs suffered from frequent safety violations, but existing camera alerts triggered constant false alarms that supervisors ignored.</p>
+                <p>Auditing manual PPE usage (hard hats, vests, protective shoes) at gate entry points and mixing bays was labor-intensive, inconsistent, and highly error-prone.</p>
               </div>
               <div class="card-desc-block">
                 <span class="card-label">The Scenviz Approach</span>
-                <p>Deployed edge nodes running spatial reasoning models and temporal stability filters to continuously audit restricted zone entry and calculate fall-risk postures.</p>
+                <p>Deployed high-resolution object classifiers retrofitted to hallway and gate feeds. Employs deep multi-hazard detectors with temporal filtering to guarantee steady tracking.</p>
               </div>
-              
               <div>
                 <span class="card-label">Verified Outcomes</span>
                 <ul class="card-bullets">
-                  <li>Dispatches safety violation alerts to floor supervisors with under 2-second processing latency.</li>
-                  <li>Tracks physical joint angles and spatial floor coordinates to calculate fall-risk postures.</li>
-                  <li>Eliminated false alarms entirely during 30 days of continuous operation in high-activity zones.</li>
+                  <li><strong>Triple-Constraint PPE Check:</strong> Monitors active workers for Hardhats, High-Visibility Vests, and Safety Shoes concurrently.</li>
+                  <li><strong>Zero-False Alert Filter:</strong> Temporal checks ensure background items (such as hanging jackets or yellow cups) do not trigger false alerts.</li>
+                  <li><strong>Real-time Compliance Scoring:</strong> Streams compliance records directly to plant safety coordinators and generates auditor compliance reports.</li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- Card Footer -->
           <div class="card-footer-area">
             <div class="card-tags">
-              <span class="card-tag">Pose & Safety</span>
-              <span class="card-tag">Real-time Detection</span>
+              <span class="card-tag">PPE Audits</span>
+              <span class="card-tag">Temporal Filter</span>
               <span class="card-tag">Compliance Evidence</span>
             </div>
-            
             <a href="#assessment-section" class="card-cta-link">
-              Review active safety monitoring layout blueprints
+              Review PPE compliance camera requirements
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Scenario 6 Card -->
+      <!-- Scenario 6 Card: Quality & Agricultural Material Inspection -->
       <div class="deployment-card visible" data-category="quality">
-        <!-- Left Visual Column -->
         <div class="card-visual-column">
           <div class="card-image-wrapper">
-            <img src="/images/counterfeit_detection.png" alt="Counterfeit packaging microtext and color signature checker UI">
+            <img src="./images/compliance_mockup.png" alt="Raw material layer, moisture, and counterfeit packaging inspection station">
             <div class="card-image-overlay"></div>
           </div>
-          <!-- Headline Metric Overlay -->
           <div class="card-metric-overlay">
             <div class="card-metric-overlay-container">
-              <span class="card-metric-value">98%+ Counterfeit Capture Rate</span>
-              <span class="card-metric-label">Verified Multi-Variant QC Capture</span>
+              <span class="card-metric-value">99.7% QC Detection Rate</span>
+              <span class="card-metric-label">Deep Structural Quality Classifiers</span>
             </div>
           </div>
         </div>
-
-        <!-- Right Content Column -->
         <div class="card-content-column">
           <div>
             <span class="card-category-tag">Quality & Brand Protection</span>
-            <h3 class="card-title">98% Counterfeit Feature Identification Rate Secured</h3>
-            
+            <h3 class="card-title">Visual Counterfeit & Agricultural Quality Control</h3>
             <div class="card-details-grid">
               <div class="card-desc-block">
                 <span class="card-label">The Problem</span>
-                <p>Sophisticated counterfeit packaging with micro-text anomalies and minor color deviations went unnoticed in standard inspections, eroding brand value.</p>
+                <p>Counterfeit branding packages damaged market trust, while inconsistent quality layers (such as excessive moisture or layer faults in agricultural bales) caused processing shutdowns.</p>
               </div>
               <div class="card-desc-block">
                 <span class="card-label">The Scenviz Approach</span>
-                <p>Developed a hybrid inspection system combining contrast-limited adaptive histogram equalization with deep classification to detect micro-text errors across 12 variants.</p>
+                <p>Designed dual-spectrum vision checkpoints containing contrast-limited image preprocessing algorithms to scan raw agricultural bales and high-speed printed packages.</p>
               </div>
-              
               <div>
                 <span class="card-label">Verified Outcomes</span>
                 <ul class="card-bullets">
-                  <li>Analyzes micro-text packaging errors and color signature shifts across 12 product variants.</li>
-                  <li>Applies localized preprocessing filters to eliminate high-gloss carton glare and surface reflection.</li>
-                  <li>Stores detailed visual anomaly logs in an offline table for rapid QA investigation.</li>
+                  <li><strong>Visual Counterfeit Detection:</strong> Identifies printing errors, fake security signatures, and color variations.</li>
+                  <li><strong>Leaf Bale Inspection:</strong> Automatically audits raw leaf bales, verifying moisture-affected zones and layer density variations.</li>
+                  <li><strong>SCADA Action Gating:</strong> Sends digital signals to trigger high-speed physical pneumatic reject gates on active lines.</li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- Card Footer -->
           <div class="card-footer-area">
             <div class="card-tags">
-              <span class="card-tag">Brand Protection</span>
-              <span class="card-tag">OCR & Verification</span>
-              <span class="card-tag">Defect Detection</span>
+              <span class="card-tag">Counterfeit Detection</span>
+              <span class="card-tag">Material Inspection</span>
+              <span class="card-tag">Agro-Processing</span>
             </div>
-            
             <a href="#assessment-section" class="card-cta-link">
-              Consult on brand protection quality tools
+              Consult on material inspection & quality control
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Scenario 7 Card -->
+      <!-- Scenario 7 Card: Motorcycle (Honda) Safety & Gate Control -->
       <div class="deployment-card visible" data-category="logistics">
-        <!-- Left Visual Column -->
         <div class="card-visual-column">
           <div class="card-image-wrapper">
-            <img src="/images/crowd_depth.png" alt="Dynamic 3D crowd density and evacuations tracking interface">
+            <img src="./images/honda_detection.png" alt="Edge AI motorcycle and model detection at industrial warehouse gates">
             <div class="card-image-overlay"></div>
           </div>
-          <!-- Headline Metric Overlay -->
           <div class="card-metric-overlay">
             <div class="card-metric-overlay-container">
-              <span class="card-metric-value">94%+ Depth-Aware Crowd Classification</span>
-              <span class="card-metric-label">Spatially Smoothed Cluster Metrics</span>
+              <span class="card-metric-value">99.2% Model Accuracy</span>
+              <span class="card-metric-label">Bangladesh Road Context Trained</span>
             </div>
           </div>
         </div>
-
-        <!-- Right Content Column -->
         <div class="card-content-column">
           <div>
             <span class="card-category-tag">Logistics & Operations</span>
-            <h3 class="card-title">94% Dynamic Density Classification Accuracy Delivered</h3>
-            
+            <h3 class="card-title">Honda & Rider Model Detection</h3>
             <div class="card-details-grid">
               <div class="card-desc-block">
                 <span class="card-label">The Problem</span>
-                <p>Standard surveillance suffered from severe perspective distortions, miscalculating crowd density and triggering false alarms from flat, overlapping fields of view.</p>
+                <p>Unregulated motorcycle (local terminology: Honda) access to loading docks and factory grounds caused logistics congestion, unsafe parking behaviors, and safety violations.</p>
               </div>
               <div class="card-desc-block">
                 <span class="card-label">The Scenviz Approach</span>
-                <p>Engineered a depth-aware spatial tracking model that maps coordinate depths in 3D, applying temporal smoothing to continuously monitor crowd density and evacuation flows.</p>
+                <p>Configured gate camera streams with local vehicle model classifiers trained specifically on Bangladesh road traffic profiles, classifying motorcycle brands and driver headwear.</p>
               </div>
-              
               <div>
                 <span class="card-label">Verified Outcomes</span>
                 <ul class="card-bullets">
-                  <li>Maps coordinate depths in 3D space to eliminate false density counts from flat overlaps.</li>
-                  <li>Tracks velocity vector deviations to instantly detect abnormal mob formations and blockages.</li>
-                  <li>Applies temporal smoothing to maintain tracking stability across variable outdoor lighting.</li>
+                  <li><strong>Honda (Motorcycle) Detection:</strong> Registers all incoming and outgoing motorcycles in plant corridors.</li>
+                  <li><strong>Honda Model Detection:</strong> Classifies specific motorcycle model types (e.g. CD80, Hunk, Pulsar) for automated visitor database logging.</li>
+                  <li><strong>Rider Safety checks:</strong> Works in sync with gates to verify driver helmet compliance before raising physical security barriers.</li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- Card Footer -->
           <div class="card-footer-area">
             <div class="card-tags">
-              <span class="card-tag">Crowd Intelligence</span>
-              <span class="card-tag">Real-time Detection</span>
-              <span class="card-tag">Edge Deployment</span>
+              <span class="card-tag">Honda Detection</span>
+              <span class="card-tag">Model Classification</span>
+              <span class="card-tag">Gate Automation</span>
             </div>
-            
             <a href="#assessment-section" class="card-cta-link">
-              Review public safety crowding analytics specifications
+              Consult on motorcycle gate integration
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Scenario 8 Card -->
+      <!-- Scenario 8 Card: Staircase Safety & Compliance -->
       <div class="deployment-card visible" data-category="compliance">
-        <!-- Left Visual Column -->
         <div class="card-visual-column">
           <div class="card-image-wrapper">
-            <img src="/images/multi_hazard_safety.png" alt="Industrial warehouse live overspeed and operator PPE check HUD">
+            <img src="./images/stairs_safety.png" alt="Staircase safety monitoring with handrail holding and phone usage alerts dashboard">
             <div class="card-image-overlay"></div>
           </div>
-          <!-- Headline Metric Overlay -->
           <div class="card-metric-overlay">
             <div class="card-metric-overlay-container">
-              <span class="card-metric-value">96%+ Hazard Capture Rate</span>
-              <span class="card-metric-label">Concurrent Multi-Hazard Edge Metric</span>
+              <span class="card-metric-value">98.6% SOP Assertion Rate</span>
+              <span class="card-metric-label">Joint-Angle Pose Safety Analytics</span>
             </div>
           </div>
         </div>
-
-        <!-- Right Content Column -->
         <div class="card-content-column">
           <div>
             <span class="card-category-tag">Workplace Safety & Compliance</span>
-            <h3 class="card-title">96% Detection Rate Across Four Hazards</h3>
-            
+            <h3 class="card-title">Staircase Safety & SOP Compliance</h3>
             <div class="card-details-grid">
               <div class="card-desc-block">
                 <span class="card-label">The Problem</span>
-                <p>Running separate software tools for overspeed, PPE, and zone violations caused prohibitive integration costs and overwhelmed edge processing limits.</p>
+                <p>Walkway falls are a major risk in industrial plants. Checking if thousands of employees hold staircase rails or use phones while ascending and descending shifts was impossible.</p>
               </div>
               <div class="card-desc-block">
                 <span class="card-label">The Scenviz Approach</span>
-                <p>Engineered a unified multi-hazard edge platform running four concurrent detection modules on a single device, minimizing hardware footprint and bandwidth.</p>
+                <p>Retrofitted staircase cameras with 2D pose estimation networks that map worker arm joints relative to physical handrails and flag active mobile phone usage during stairs movement.</p>
               </div>
-              
               <div>
                 <span class="card-label">Verified Outcomes</span>
                 <ul class="card-bullets">
-                  <li>Runs 4 independent safety modules concurrently on a single low-power edge node.</li>
-                  <li>Utilizes homography-based pixel mapping to calculate physical vehicle overspeed rates.</li>
-                  <li>Saves verified incidents directly into local relational tables with custom regional thresholds.</li>
+                  <li><strong>Stairs Compliance Detection:</strong> Automatically audits safety behaviors on all multi-story stairs.</li>
+                  <li><strong>Stairs Not Holding Rail:</strong> Detects and flags workers walking without holding handrails using limb coordinates.</li>
+                  <li><strong>Stairs Phone Used Detection:</strong> Captures when workers are distracted by active phone screens on steps, logging compliance violations.</li>
                 </ul>
               </div>
             </div>
           </div>
-
-          <!-- Card Footer -->
           <div class="card-footer-area">
             <div class="card-tags">
-              <span class="card-tag">Pose & Safety</span>
-              <span class="card-tag">Real-time Detection</span>
-              <span class="card-tag">Edge Deployment</span>
+              <span class="card-tag">Stairwell Pose</span>
+              <span class="card-tag">SOP Compliance</span>
+              <span class="card-tag">Injury Prevention</span>
             </div>
-            
             <a href="#assessment-section" class="card-cta-link">
-              Verify multi-hazard edge platform hardware configurations
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scenario 9 Card -->
-      <div class="deployment-card visible" data-category="quality">
-        <!-- Left Visual Column -->
-        <div class="card-visual-column">
-          <div class="card-image-wrapper">
-            <img src="/images/hero_visual.png" alt="High speed line scan film slitting quality control surface inspection">
-            <div class="card-image-overlay"></div>
-          </div>
-          <!-- Headline Metric Overlay -->
-          <div class="card-metric-overlay">
-            <div class="card-metric-overlay-container">
-              <span class="card-metric-value">0.5 mm Defect Detection at 15m/s</span>
-              <span class="card-metric-label">High-Speed Continuous Slitter Speed</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Content Column -->
-        <div class="card-content-column">
-          <div>
-            <span class="card-category-tag">Quality & Brand Protection</span>
-            <h3 class="card-title">800 Meters Per Minute Web Defect Detection</h3>
-            
-            <div class="card-details-grid">
-              <div class="card-desc-block">
-                <span class="card-label">The Problem</span>
-                <p>Sub-millimeter defects on high-speed slitting lines (running at 15 m/s) were completely invisible to human operators, leading to entire roll batch rejections by export buyers.</p>
-              </div>
-              <div class="card-desc-block">
-                <span class="card-label">The Scenviz Approach</span>
-                <p>Implemented a dual-channel light-transmission and dark-field line-scan system. Leveraged 8K line-scan cameras synchronized directly to rollers via 75 kHz shaft encoders.</p>
-              </div>
-              
-              <div>
-                <span class="card-label">Verified Outcomes</span>
-                <ul class="card-bullets">
-                  <li>Detects microscopic pinholes and scratches at production speeds up to 15 m/s (800–900 m/min).</li>
-                  <li>Captures high-precision frames at 75 kHz, yielding an operational resolution of 0.183 mm per pixel.</li>
-                  <li>Instantly categorizes defect logs into six distinct structural classes for automatic coil grading.</li>
-                </ul>
-                
-                <!-- Related cross-sell navigation link -->
-                <a href="javascript:void(0);" onclick="scrollToScenario(4)" class="related-scenarios-badge">
-                  🔍 Related: Industrial Label & Barcode Verification (Scenario 4)
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="card-footer-area">
-            <div class="card-tags">
-              <span class="card-tag">Defect Detection</span>
-              <span class="card-tag">Real-time Detection</span>
-              <span class="card-tag">Edge Deployment</span>
-            </div>
-            
-            <a href="#assessment-section" class="card-cta-link">
-              Consult on high-speed line-scan inspection setups
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scenario 10 Card -->
-      <div class="deployment-card visible" data-category="compliance">
-        <!-- Left Visual Column -->
-        <div class="card-visual-column">
-          <div class="card-image-wrapper">
-            <img src="/images/tamper_detection.png" alt="National bank surveillance vault visual integrity network check">
-            <div class="card-image-overlay"></div>
-          </div>
-          <!-- Headline Metric Overlay -->
-          <div class="card-metric-overlay">
-            <div class="card-metric-overlay-container">
-              <span class="card-metric-value">99%+ Camera Tamper Capture Rate</span>
-              <span class="card-metric-label">10-Frame State Machine Verification</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Content Column -->
-        <div class="card-content-column">
-          <div>
-            <span class="card-category-tag">Workplace Safety & Compliance</span>
-            <h3 class="card-title">99% Tamper Classification Audit Proof Generated</h3>
-            
-            <div class="card-details-grid">
-              <div class="card-desc-block">
-                <span class="card-label">The Problem</span>
-                <p>Banks and secure plants lacked automated, regulatory-grade evidence that surveillance cameras were operating continuously without physical tampering or redirection.</p>
-              </div>
-              <div class="card-desc-block">
-                <span class="card-label">The Scenviz Approach</span>
-                <p>Developed an edge-AI tamper integrity model. Utilizes local structural similarity (SSIM) and pixel variance monitoring to flag occlusions, shifts, or defocusing instantly.</p>
-              </div>
-              
-              <div>
-                <span class="card-label">Verified Outcomes</span>
-                <ul class="card-bullets">
-                  <li>Implemented a 10-frame rolling state machine to track transitions from normal to suspected tampering.</li>
-                  <li>Tracks structural similarity and luminance drift to distinguish real physical tampering from light changes.</li>
-                  <li>Generates timestamped logs that serve as audit-grade evidence for regulatory compliance reviews.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="card-footer-area">
-            <div class="card-tags">
-              <span class="card-tag">Tamper Intelligence</span>
-              <span class="card-tag">Compliance Evidence</span>
-              <span class="card-tag">Multi-camera Fleet</span>
-            </div>
-            
-            <a href="#assessment-section" class="card-cta-link">
-              Review financial surveillance audit-grade specifications
+              Review stairwell safety compliance specs
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
           </div>

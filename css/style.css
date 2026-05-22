@@ -73,6 +73,11 @@ body {
   min-height: 100vh;
 }
 
+p {
+  line-height: 1.7;
+  letter-spacing: 0.15px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -291,6 +296,10 @@ img, video {
   color: var(--text-primary);
   font-size: 1.5rem;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 /* --- 5. Interactive Buttons & Controls --- */
@@ -581,6 +590,7 @@ select.form-control {
   overflow: hidden;
   border: 1px solid var(--border-color);
   user-select: none;
+  touch-action: pan-y;
 }
 
 .matrix-img {
@@ -610,6 +620,7 @@ select.form-control {
   cursor: ew-resize;
   z-index: 10;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+  touch-action: none;
 }
 
 .matrix-handle-button {
@@ -1080,11 +1091,15 @@ select.form-control {
   .container {
     padding: 60px 0;
   }
+  .nav-container {
+    width: 100%;
+    padding: 18px 24px;
+  }
   .nav-menu {
     display: none;
   }
   .mobile-nav-toggle {
-    display: block;
+    display: flex;
   }
   .mobile-sticky-bar {
     display: block;
